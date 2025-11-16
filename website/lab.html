@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Labs Dashboard - SOC Analyst I</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body class="dark">
+  <nav class="site-nav">
+    <div class="logo">SOC Analyst I</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="modules.html">Modules</a></li>
+      <li><a href="lab.html" class="active">Labs</a></li>
+      <li><a href="dashboard.html">Progress</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="prompts.html">Prompts</a></li>
+      <li><a href="notebook.html">Notebook</a></li>
+      <li>
+        <button class="theme-toggle" aria-label="Toggle theme">🌓</button>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="lab-page">
+    <header class="page-header">
+      <h1>Labs Dashboard</h1>
+      <p>Hands-on exercises with step-by-step instructions and synthetic data</p>
+    </header>
+
+    <div class="lab-filters">
+      <button class="filter-btn active" data-filter="all">All Labs</button>
+      <button class="filter-btn" data-filter="in-progress">In Progress</button>
+      <button class="filter-btn" data-filter="available">Available</button>
+      <button class="filter-btn" data-filter="locked">Locked</button>
+      <button class="filter-btn" data-filter="capstone">Capstone</button>
+    </div>
+
+    <div class="labs-grid">
+      <!-- Module 1 Labs -->
+      <div class="lab-card in-progress" data-module="1" data-status="in-progress">
+        <div class="lab-header">
+          <span class="lab-module">Module 1: Phishing</span>
+          <span class="lab-status-badge in-progress">In Progress</span>
+        </div>
+        <h3>Lab 1.1: Email Header Analysis and Spoofing Detection</h3>
+        <p><strong>Objective:</strong> Extract and analyze email headers to identify spoofing and determine the true origin of an email.</p>
+        <div class="lab-details">
+          <div class="lab-steps">
+            <h4>Lab Steps:</h4>
+            <ol>
+              <li>Copy the sample header into a text editor. Read the `Received` lines from bottom to top.</li>
+              <li>Check the `X-Originating-IP` against the attacker's IP.</li>
+              <li>Examine the `Received-SPF` line for validation failures.</li>
+              <li>Verify the `From` address against the actual sending server.</li>
+              <li>Document spoofing indicators and create analysis report.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1 hour</span>
+          <span class="lab-difficulty">🟡 Intermediate</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">Text Editor</span>
+          <span class="tool-tag">Header Analyzer</span>
+          <span class="tool-tag">MXToolbox</span>
+        </div>
+        <div class="lab-deliverable">
+          <strong>Deliverable:</strong> A one-page analysis document identifying spoofing indicators
+        </div>
+        <a href="lab-tutorial.html?lab=1.1" class="btn-primary">Start Tutorial</a>
+      </div>
+
+      <div class="lab-card available" data-module="1" data-status="available">
+        <div class="lab-header">
+          <span class="lab-module">Module 1: Phishing</span>
+          <span class="lab-status-badge available">Available</span>
+        </div>
+        <h3>Lab 1.2: OSINT Threat Enrichment</h3>
+        <p><strong>Objective:</strong> Enrich the IOCs from the spoofed email with threat intelligence using open-source tools.</p>
+        <div class="lab-details">
+          <div class="lab-steps">
+            <h4>Lab Steps:</h4>
+            <ol>
+              <li><strong>VirusTotal Domain Check:</strong> Search for domain, document creation date and detections</li>
+              <li><strong>Whois Lookup:</strong> Check domain registration (registrant, creation date, registrar)</li>
+              <li><strong>Shodan IP Search:</strong> Search IP address for open ports and services</li>
+              <li><strong>AbuseIPDB Check:</strong> Check for historical abuse reports and confidence score</li>
+              <li><strong>Email Reputation:</strong> Check email address on reputation services</li>
+            </ol>
+          </div>
+          <div class="lab-iocs">
+            <h4>IOCs to Investigate:</h4>
+            <ul>
+              <li>Domain: <code>amazon-security.com</code></li>
+              <li>IP Address: <code>198.51.100.50</code></li>
+              <li>Email: <code>noreply@amazon-security.com</code></li>
+            </ul>
+          </div>
+        </div>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1 hour</span>
+          <span class="lab-difficulty">🟢 Beginner</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">VirusTotal</span>
+          <span class="tool-tag">AbuseIPDB</span>
+          <span class="tool-tag">Shodan</span>
+          <span class="tool-tag">Whois</span>
+        </div>
+        <div class="lab-deliverable">
+          <strong>Deliverable:</strong> Threat enrichment report with findings from all OSINT tools
+        </div>
+        <a href="lab-tutorial.html?lab=1.2" class="btn-primary">Start Tutorial</a>
+      </div>
+
+      <div class="lab-card locked" data-module="1" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 1: Phishing</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 1.3: PCAP Analysis and Incident Ticket Creation</h3>
+        <p><strong>Objective:</strong> Analyze network traffic from a phishing compromise and create an incident ticket following NIST 800-61 framework.</p>
+        <div class="lab-details">
+          <div class="lab-steps">
+            <h4>Lab Steps:</h4>
+            <ol>
+              <li>Analyze the PCAP to identify DNS query, malware download, C2 connection, and data exfiltration</li>
+              <li>Extract all IOCs (domains, IP addresses, URLs)</li>
+              <li>Create a timeline ordering events chronologically</li>
+              <li>Determine the scope (compromised host: 192.168.1.100)</li>
+              <li>Create incident ticket with all findings and recommended actions</li>
+            </ol>
+          </div>
+          <div class="lab-scenario">
+            <h4>Scenario:</h4>
+            <p>A user clicked the malicious link. The attacker's malware established a C2 connection and exfiltrated a small amount of data.</p>
+          </div>
+        </div>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1 hour</span>
+          <span class="lab-difficulty">🟡 Intermediate</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">Wireshark</span>
+          <span class="tool-tag">PCAP</span>
+          <span class="tool-tag">NIST 800-61</span>
+        </div>
+        <div class="lab-deliverable">
+          <strong>Deliverable:</strong> Completed incident ticket with IOCs, timeline, and recommended actions
+        </div>
+        <a href="lab-tutorial.html?lab=1.3" class="btn-primary">Start Tutorial</a>
+      </div>
+
+      <!-- Module 2 Labs -->
+      <div class="lab-card locked" data-module="2" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 2: Unauthorized Access</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 2.1: IAM Abuse & Privilege Escalation</h3>
+        <p><strong>Objective:</strong> Investigate failed login attempts and privilege escalation on Linux and AWS systems.</p>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1 hour</span>
+          <span class="lab-difficulty">🟡 Intermediate</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">Linux auth.log</span>
+          <span class="tool-tag">AWS CloudTrail</span>
+          <span class="tool-tag">grep</span>
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <div class="lab-card locked" data-module="2" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 2: Unauthorized Access</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 2.2: Host Log Analysis & Timeline</h3>
+        <p><strong>Objective:</strong> Create a user activity timeline from host logs to reconstruct attacker actions.</p>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1 hour</span>
+          <span class="lab-difficulty">🟡 Intermediate</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">journalctl</span>
+          <span class="tool-tag">Windows Event Log</span>
+          <span class="tool-tag">awk</span>
+          <span class="tool-tag">sed</span>
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <div class="lab-card locked" data-module="2" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 2: Unauthorized Access</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 2.3: Cloud IAM Investigation</h3>
+        <p><strong>Objective:</strong> Investigate unauthorized access in AWS using CloudTrail and GuardDuty.</p>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1 hour</span>
+          <span class="lab-difficulty">🟡 Intermediate</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">AWS CloudTrail</span>
+          <span class="tool-tag">GuardDuty</span>
+          <span class="tool-tag">VPC Flow Logs</span>
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <!-- Module 3 Labs -->
+      <div class="lab-card locked" data-module="3" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 3: Data Exfiltration</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 3.1: Data Exfiltration Patterns</h3>
+        <p><strong>Objective:</strong> Detect large file transfers and data exfiltration patterns in network traffic.</p>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1 hour</span>
+          <span class="lab-difficulty">🟡 Intermediate</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">VPC Flow Logs</span>
+          <span class="tool-tag">Wireshark</span>
+          <span class="tool-tag">NetFlow</span>
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <div class="lab-card locked" data-module="3" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 3: Data Exfiltration</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 3.2: File Transfer Protocol Analysis</h3>
+        <p><strong>Objective:</strong> Analyze FTP, SFTP, and HTTP POST traffic for data exfiltration.</p>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1 hour</span>
+          <span class="lab-difficulty">🟡 Intermediate</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">Wireshark</span>
+          <span class="tool-tag">PCAP</span>
+          <span class="tool-tag">FTP/SFTP</span>
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <div class="lab-card locked" data-module="3" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 3: Data Exfiltration</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 3.3: Linux Disk Forensics</h3>
+        <p><strong>Objective:</strong> Perform disk forensics using SleuthKit to investigate data exfiltration.</p>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1 hour</span>
+          <span class="lab-difficulty">🔴 Advanced</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">SleuthKit</span>
+          <span class="tool-tag">Autopsy</span>
+          <span class="tool-tag">Linux Forensics</span>
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <!-- Module 4 Labs -->
+      <div class="lab-card locked" data-module="4" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 4: DDoS</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 4.1: DDoS Attack Types & Detection</h3>
+        <p><strong>Objective:</strong> Identify botnet traffic patterns and classify DDoS attack types.</p>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1 hour</span>
+          <span class="lab-difficulty">🟡 Intermediate</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">Wireshark</span>
+          <span class="tool-tag">NetFlow</span>
+          <span class="tool-tag">PCAP</span>
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <div class="lab-card locked" data-module="4" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 4: DDoS</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 4.2: DDoS Mitigation & Cloud Defenses</h3>
+        <p><strong>Objective:</strong> Configure AWS Shield, WAF, and CloudFront for DDoS mitigation.</p>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1 hour</span>
+          <span class="lab-difficulty">🟡 Intermediate</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">AWS Shield</span>
+          <span class="tool-tag">AWS WAF</span>
+          <span class="tool-tag">CloudFront</span>
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <!-- Module 5 Labs -->
+      <div class="lab-card locked" data-module="5" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 5: Malware</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 5.1: Static Malware Analysis</h3>
+        <p><strong>Objective:</strong> Perform static analysis on a malware sample to extract IOCs and determine the malware type.</p>
+        <div class="lab-details">
+          <div class="lab-steps">
+            <h4>Lab Steps:</h4>
+            <ol>
+              <li><strong>Extract Strings:</strong> Use <code>strings</code> command to find hardcoded IPs, URLs, registry keys</li>
+              <li><strong>Analyze File Metadata:</strong> Use <code>file</code> and <code>exiftool</code> to extract metadata</li>
+              <li><strong>Calculate Hashes:</strong> Generate MD5, SHA-1, SHA-256 hashes</li>
+              <li><strong>Check VirusTotal:</strong> Verify if malware is known</li>
+              <li><strong>Extract IOCs:</strong> Document all C2 IPs/domains, registry keys, file paths</li>
+            </ol>
+          </div>
+        </div>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1 hour</span>
+          <span class="lab-difficulty">🟡 Intermediate</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">strings</span>
+          <span class="tool-tag">file</span>
+          <span class="tool-tag">exiftool</span>
+          <span class="tool-tag">VirusTotal</span>
+        </div>
+        <div class="lab-deliverable">
+          <strong>Deliverable:</strong> Static analysis report with all extracted IOCs
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <div class="lab-card locked" data-module="5" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 5: Malware</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 5.2: Memory Forensics with Volatility</h3>
+        <p><strong>Objective:</strong> Analyze a memory dump from an infected system to identify malicious processes and network connections.</p>
+        <div class="lab-details">
+          <div class="lab-steps">
+            <h4>Lab Steps:</h4>
+            <ol>
+              <li><strong>Identify OS:</strong> Use <code>vol.py -f memory.dmp imageinfo</code></li>
+              <li><strong>List Processes:</strong> Use <code>pslist</code> plugin to find suspicious processes</li>
+              <li><strong>Analyze Network:</strong> Use <code>connscan</code> to find C2 connections</li>
+              <li><strong>Find Code Injection:</strong> Use <code>malfind</code> plugin</li>
+              <li><strong>Extract Process:</strong> Dump suspicious process for further analysis</li>
+            </ol>
+          </div>
+        </div>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1.5 hours</span>
+          <span class="lab-difficulty">🔴 Advanced</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">Volatility</span>
+          <span class="tool-tag">Memory Dump</span>
+          <span class="tool-tag">pslist</span>
+          <span class="tool-tag">connscan</span>
+        </div>
+        <div class="lab-deliverable">
+          <strong>Deliverable:</strong> Memory forensics report with suspicious processes and connections
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <div class="lab-card locked" data-module="5" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 5: Malware</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 5.3: Reverse Engineering & Malware Families</h3>
+        <p><strong>Objective:</strong> Use Ghidra to disassemble malware and identify malware families.</p>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1 hour</span>
+          <span class="lab-difficulty">🔴 Advanced</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">Ghidra</span>
+          <span class="tool-tag">IDA</span>
+          <span class="tool-tag">Disassembly</span>
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <!-- Module 6 Labs -->
+      <div class="lab-card locked" data-module="6" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 6: Detection Engineering</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 6.1: Suricata Rule Creation</h3>
+        <p><strong>Objective:</strong> Write a Suricata rule to detect a specific attack pattern and test it against a PCAP file.</p>
+        <div class="lab-details">
+          <div class="lab-steps">
+            <h4>Lab Steps:</h4>
+            <ol>
+              <li>Create the rule file (<code>malware-c2.rules</code>)</li>
+              <li>Create a test PCAP with HTTP traffic to malicious domain</li>
+              <li>Run Suricata: <code>suricata -r test.pcap -S malware-c2.rules -l ./logs/</code></li>
+              <li>Verify alert in <code>eve.json</code> log</li>
+              <li>Tune the rule to reduce false positives</li>
+            </ol>
+          </div>
+          <div class="lab-code">
+            <h4>Example Suricata Rule:</h4>
+            <pre><code>alert http $HOME_NET any -> $EXTERNAL_NET any (
+    msg:"Potential Malware C2 Communication";
+    flow:to_server,established;
+    content:"GET"; http_method;
+    content:"malware-c2.net"; http_host;
+    sid:1000001; rev:1;
+    classtype:trojan-activity;
+    priority:1;
+)</code></pre>
+          </div>
+        </div>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1 hour</span>
+          <span class="lab-difficulty">🟡 Intermediate</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">Suricata</span>
+          <span class="tool-tag">PCAP</span>
+          <span class="tool-tag">scapy</span>
+        </div>
+        <div class="lab-deliverable">
+          <strong>Deliverable:</strong> Documented Suricata rule with test results
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <div class="lab-card locked" data-module="6" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 6: Detection Engineering</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 6.2: YARA Rule Creation</h3>
+        <p><strong>Objective:</strong> Write a YARA rule to detect a specific malware family and test it against known samples.</p>
+        <div class="lab-details">
+          <div class="lab-steps">
+            <h4>Lab Steps:</h4>
+            <ol>
+              <li>Create the rule file (<code>cryptolocker.yar</code>)</li>
+              <li>Create or obtain test malware samples</li>
+              <li>Run YARA: <code>yara cryptolocker.yar /path/to/samples/</code></li>
+              <li>Verify detections in output</li>
+              <li>Test for false positives with benign files</li>
+            </ol>
+          </div>
+        </div>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1 hour</span>
+          <span class="lab-difficulty">🟡 Intermediate</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">YARA</span>
+          <span class="tool-tag">Malware Samples</span>
+          <span class="tool-tag">Pattern Matching</span>
+        </div>
+        <div class="lab-deliverable">
+          <strong>Deliverable:</strong> Documented YARA rule with test results and false positive analysis
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <div class="lab-card locked" data-module="6" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 6: Detection Engineering</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 6.3: Sigma Rules & SIEM Integration</h3>
+        <p><strong>Objective:</strong> Create Sigma rules and convert them to SIEM-specific queries.</p>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1 hour</span>
+          <span class="lab-difficulty">🟡 Intermediate</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">Sigma</span>
+          <span class="tool-tag">SIEM</span>
+          <span class="tool-tag">YAML</span>
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <!-- Module 7 Capstone -->
+      <div class="lab-card locked capstone" data-module="7" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 7 - Capstone</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Capstone Lab 7.1: Multi-Stage Attack Simulation</h3>
+        <p><strong>Objective:</strong> Analyze a complete, multi-stage attack scenario and perform end-to-end incident response.</p>
+        <div class="lab-details">
+          <div class="lab-scenario">
+            <h4>Attack Scenario:</h4>
+            <p>Phishing email → Malicious Excel macro → PowerShell execution → C2 establishment → Reconnaissance → Privilege escalation → Data exfiltration</p>
+          </div>
+          <div class="lab-steps">
+            <h4>Lab Steps (NIST 800-61 Phases):</h4>
+            <ol>
+              <li><strong>Phase 1: Detection & Analysis</strong> - Analyze email, Excel file, PCAP, host logs, CloudTrail</li>
+              <li><strong>Phase 2: Containment</strong> - Identify compromised host, recommend containment actions</li>
+              <li><strong>Phase 3: Eradication & Recovery</strong> - Identify persistence, recommend eradication steps</li>
+              <li><strong>Phase 4: Post-Incident</strong> - Create comprehensive incident report</li>
+            </ol>
+          </div>
+          <div class="lab-data">
+            <h4>Provided Data:</h4>
+            <ul>
+              <li>Phishing email (raw format)</li>
+              <li>Malicious Excel file</li>
+              <li>Network traffic capture (PCAP)</li>
+              <li>Host logs (Windows Event Log and Syslog)</li>
+              <li>AWS CloudTrail logs</li>
+              <li>Memory dump</li>
+            </ul>
+          </div>
+        </div>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 2 hours</span>
+          <span class="lab-difficulty">🔴 Advanced</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">All Tools</span>
+          <span class="tool-tag">Full IR Process</span>
+          <span class="tool-tag">NIST 800-61</span>
+        </div>
+        <div class="lab-deliverable">
+          <strong>Deliverable:</strong> Comprehensive incident report (10-15 pages) documenting all phases
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <div class="lab-card locked capstone" data-module="7" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 7 - Capstone</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Capstone Challenge 7.2: Detect & Defend Challenge</h3>
+        <p><strong>Objective:</strong> Develop detection logic, investigate suspicious activity, and generate a SOC-ready report under time pressure.</p>
+        <div class="lab-details">
+          <div class="lab-steps">
+            <h4>Challenge Format (2 Hours Total):</h4>
+            <ol>
+              <li><strong>Detection Development (30 min):</strong> Write 2-3 detection rules (Suricata, YARA, or Sigma)</li>
+              <li><strong>Investigation (60 min):</strong> Analyze logs (PCAP, host logs, cloud logs) to identify attack, create timeline, determine scope</li>
+              <li><strong>Reporting (30 min):</strong> Create one-page incident summary for management</li>
+            </ol>
+          </div>
+        </div>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 2 hours</span>
+          <span class="lab-difficulty">🔴 Advanced</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">Time Pressure</span>
+          <span class="tool-tag">Rapid Analysis</span>
+          <span class="tool-tag">Executive Reporting</span>
+        </div>
+        <div class="lab-deliverable">
+          <strong>Deliverable:</strong> Detection rules, investigation notes, and executive incident summary
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <!-- Module 8 Labs -->
+      <div class="lab-card locked" data-module="8" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 8: Interview Prep</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 8.1: Technical Mock Interview</h3>
+        <p><strong>Objective:</strong> Practice answering 30 common SOC interview questions covering IR, networking, cloud security, and detection.</p>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1.5 hours</span>
+          <span class="lab-difficulty">🟡 Intermediate</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">Interview Prep</span>
+          <span class="tool-tag">Whiteboard Scenarios</span>
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+
+      <div class="lab-card locked" data-module="8" data-status="locked">
+        <div class="lab-header">
+          <span class="lab-module">Module 8: Interview Prep</span>
+          <span class="lab-status-badge locked">Locked</span>
+        </div>
+        <h3>Lab 8.2: Behavioral Interview Prep</h3>
+        <p><strong>Objective:</strong> Practice STAR method answers for behavioral questions and develop career roadmap.</p>
+        <div class="lab-meta">
+          <span class="lab-duration">⏱️ 1.5 hours</span>
+          <span class="lab-difficulty">🟢 Beginner</span>
+        </div>
+        <div class="lab-tools">
+          <span class="tool-tag">STAR Method</span>
+          <span class="tool-tag">Career Planning</span>
+          <span class="tool-tag">Resume Optimization</span>
+        </div>
+        <span class="btn-secondary disabled">Locked</span>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SOC Analyst I — From Cradle to Grave. All rights reserved.</p>
+  </footer>
+</body>
+</html>

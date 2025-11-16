@@ -1,0 +1,6 @@
+CryptoLocker_Variant /tmp/samples/malware_001.exe
+CryptoLocker_Variant /tmp/samples/malware_002.exe
+PsExec_Lateral_Movement /tmp/samples/psexec.exe
+Suspicious_PowerShell /tmp/samples/script.ps1
+Malware_C2_Communication /tmp/samples/trojan.exe
+

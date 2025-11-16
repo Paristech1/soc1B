@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Course Modules - SOC Analyst I</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body class="dark">
+  <nav class="site-nav">
+    <div class="logo">SOC Analyst I</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="modules.html" class="active">Modules</a></li>
+      <li><a href="lab.html">Labs</a></li>
+      <li><a href="dashboard.html">Progress</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="prompts.html">Prompts</a></li>
+      <li><a href="notebook.html">Notebook</a></li>
+      <li>
+        <button class="theme-toggle" aria-label="Toggle theme">🌓</button>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="modules-page">
+    <header class="page-header">
+      <h1>Course Modules</h1>
+      <p>8 comprehensive modules covering all essential SOC Tier 1 skills</p>
+    </header>
+
+    <div class="modules-list">
+      <div class="module-detail-card in-progress" data-module="1">
+        <div class="module-header">
+          <span class="module-number">01</span>
+          <div class="module-title-section">
+            <h2>Phishing Attack — The Gateway Incident</h2>
+            <span class="badge">In Progress</span>
+          </div>
+        </div>
+        <p class="module-description">Learn to triage the most common attack vector in SOC environments. Master email header analysis, OSINT enrichment, and PCAP analysis for post-compromise investigation.</p>
+        <div class="module-content">
+          <div class="content-section">
+            <h4>📚 Topics Covered</h4>
+            <ul>
+              <li><strong>Phishing Triage Workflow:</strong> IR Checklist, Phishing Response Template</li>
+              <li><strong>Email Header Analysis:</strong> Header Field Cheat Sheet, Key Linux Commands, Identifying Malicious Links and Attachments</li>
+              <li><strong>OSINT for Threat Enrichment:</strong> VirusTotal, AbuseIPDB, Whois, Shodan Walkthroughs</li>
+              <li><strong>PCAP Analysis of Exfil Attempts:</strong> Wireshark Filters Cheat Sheet, Analyzing Network Traffic for Phishing Post-Compromise</li>
+              <li><strong>NIST 800-61 Framework:</strong> Incident Response lifecycle, Ticketing Simulation</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>🧪 Labs</h4>
+            <ul>
+              <li><strong>Lab 1.1:</strong> Email Header Analysis and Spoofing Detection (1 hour)</li>
+              <li><strong>Lab 1.2:</strong> OSINT Threat Enrichment (1 hour)</li>
+              <li><strong>Lab 1.3:</strong> PCAP Analysis and Incident Ticket Creation (1 hour)</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>📁 Portfolio Project</h4>
+            <p><strong>Phishing Triage Playbook</strong> — A comprehensive, reusable playbook for phishing triage that can be shared on LinkedIn. Includes Executive Summary, Incident Details, Investigation Process, Key Findings, Containment Actions, Recommendations, and Appendices.</p>
+          </div>
+          <div class="content-section">
+            <h4>🎯 Learning Objectives</h4>
+            <ul>
+              <li>Extract and analyze email headers to identify spoofing</li>
+              <li>Use OSINT tools to enrich IOCs with threat intelligence</li>
+              <li>Analyze PCAP files for C2 and data exfiltration</li>
+              <li>Create professional incident tickets following NIST 800-61</li>
+            </ul>
+          </div>
+        </div>
+        <div class="module-footer">
+          <span class="duration">⏱️ 3 sessions (3 hours)</span>
+          <a href="lab.html?module=1" class="btn-secondary">View Labs</a>
+        </div>
+      </div>
+
+      <div class="module-detail-card locked" data-module="2">
+        <div class="module-header">
+          <span class="module-number">02</span>
+          <div class="module-title-section">
+            <h2>Unauthorized Access — The Insider & External Threat</h2>
+            <span class="badge locked">Locked</span>
+          </div>
+        </div>
+        <p class="module-description">Investigate unauthorized access incidents, IAM abuse, privilege escalation, and lateral movement across Linux, Windows, and AWS environments.</p>
+        <div class="module-content">
+          <div class="content-section">
+            <h4>📚 Topics Covered</h4>
+            <ul>
+              <li><strong>IAM Abuse & Privilege Escalation:</strong> AWS IAM Policy Investigation Workflow, Linux Permissions Diagram</li>
+              <li><strong>Host Log Analysis:</strong> Linux `journalctl` and Windows Event Log (Security) Commands, User Activity Timeline Creation</li>
+              <li><strong>Lateral Movement Detection:</strong> Network Traffic Review Workflow, Common Attacker Tools, SSH Brute Force Detection</li>
+              <li><strong>Cloud-Specific Unauthorized Access:</strong> AWS GuardDuty Alerts, S3 Bucket Misconfiguration, CloudTrail Analysis</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>🧪 Labs</h4>
+            <ul>
+              <li><strong>Lab 2.1:</strong> IAM Abuse & Privilege Escalation - Investigating Failed Login Attempts (Linux auth.log and AWS CloudTrail) (1 hour)</li>
+              <li><strong>Lab 2.2:</strong> Host Log Analysis & Timeline - User Activity Timeline Creation from Host Logs (1 hour)</li>
+              <li><strong>Lab 2.3:</strong> Cloud IAM Investigation - Detecting SSH Brute Force and Suspicious File Transfers (1 hour)</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>📁 Portfolio Project</h4>
+            <p><strong>Unauthorized Access IR Report</strong> — Full incident report following NIST 800-61 framework. Documents IAM abuse, privilege escalation, host log analysis, and cloud IAM investigation findings.</p>
+          </div>
+          <div class="content-section">
+            <h4>🎯 Learning Objectives</h4>
+            <ul>
+              <li>Investigate IAM abuse and privilege escalation attacks</li>
+              <li>Analyze host logs (Linux and Windows) for unauthorized access</li>
+              <li>Investigate cloud IAM abuse using AWS CloudTrail and GuardDuty</li>
+              <li>Detect lateral movement across systems</li>
+            </ul>
+          </div>
+        </div>
+        <div class="module-footer">
+          <span class="duration">⏱️ 3 sessions (3 hours)</span>
+          <span class="btn-secondary disabled">Locked</span>
+        </div>
+      </div>
+
+      <div class="module-detail-card locked" data-module="3">
+        <div class="module-header">
+          <span class="module-number">03</span>
+          <div class="module-title-section">
+            <h2>Data Loss / Exfiltration — Protecting the Crown Jewels</h2>
+            <span class="badge locked">Locked</span>
+          </div>
+        </div>
+        <p class="module-description">Detect and investigate data exfiltration incidents through network analysis, cloud forensics, and disk forensics.</p>
+        <div class="module-content">
+          <div class="content-section">
+            <h4>📚 Topics Covered</h4>
+            <ul>
+              <li><strong>Data Exfiltration Patterns:</strong> Common Exfil Techniques (DNS Tunneling, Cloud Storage), Detecting Large File Transfers in VPC Flow Logs</li>
+              <li><strong>File Transfer Protocol Analysis:</strong> FTP, SFTP, and HTTP POST Analysis in PCAP, Analyzing Network Traffic for Encrypted Data Exfil</li>
+              <li><strong>Cloud Data Movement Forensics:</strong> AWS S3 Access Logs and CloudTrail `GetObject`/`PutObject` Analysis, Investigating S3 Exfil Detection Patterns</li>
+              <li><strong>Linux Disk / Directory Forensics:</strong> SleuthKit/Autopsy Introduction, Key Linux Forensic Commands</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>🧪 Labs</h4>
+            <ul>
+              <li><strong>Lab 3.1:</strong> Data Exfiltration Patterns and Detection - Detecting Large File Transfers in VPC Flow Logs (1 hour)</li>
+              <li><strong>Lab 3.2:</strong> File Transfer Protocol Analysis - Analyzing Network Traffic for Encrypted Data Exfil (1 hour)</li>
+              <li><strong>Lab 3.3:</strong> Linux Disk Forensics - Investigating S3 Exfil Detection Patterns using SleuthKit (1 hour)</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>📁 Portfolio Project</h4>
+            <p><strong>Data Exfil Detection Blueprint</strong> — Detection rule set and analysis report for data exfiltration incidents. Includes detection logic, test cases, and false positive analysis.</p>
+          </div>
+          <div class="content-section">
+            <h4>🎯 Learning Objectives</h4>
+            <ul>
+              <li>Identify data exfiltration patterns in network traffic</li>
+              <li>Analyze file transfer protocols (FTP, SFTP, HTTP) in PCAP files</li>
+              <li>Investigate data exfiltration in cloud environments (AWS S3)</li>
+              <li>Perform Linux disk forensics using SleuthKit and Autopsy</li>
+            </ul>
+          </div>
+        </div>
+        <div class="module-footer">
+          <span class="duration">⏱️ 3 sessions (3 hours)</span>
+          <span class="btn-secondary disabled">Locked</span>
+        </div>
+      </div>
+
+      <div class="module-detail-card locked" data-module="4">
+        <div class="module-header">
+          <span class="module-number">04</span>
+          <div class="module-title-section">
+            <h2>DDoS Attack — Availability and Resilience</h2>
+            <span class="badge locked">Locked</span>
+          </div>
+        </div>
+        <p class="module-description">Understand DDoS attack types, detection methods, and cloud-based mitigation strategies using AWS Shield, WAF, and CloudFront.</p>
+        <div class="module-content">
+          <div class="content-section">
+            <h4>📚 Topics Covered</h4>
+            <ul>
+              <li><strong>DDoS Attack Types & Signatures:</strong> Layer 3/4 (SYN Flood, UDP Flood) vs. Layer 7 (HTTP Flood), Identifying Botnet Traffic Patterns in NetFlow Data</li>
+              <li><strong>Rate-Based Detection Logic:</strong> Threshold Setting and Alert Tuning Workflow, Creating a Simple Rate-Limit Alert in a SIEM-like environment</li>
+              <li><strong>Network Forensics for DDoS:</strong> Analyzing High-Volume PCAP Files, Identifying Source IPs, Tracing a DDoS Attack Back to its Originating Network</li>
+              <li><strong>Cloud Mitigation Strategies:</strong> AWS Shield, CloudFront, and WAF Configuration Basics</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>🧪 Labs</h4>
+            <ul>
+              <li><strong>Lab 4.1:</strong> DDoS Attack Types & Detection - Identifying Botnet Traffic Patterns in NetFlow Data (1 hour)</li>
+              <li><strong>Lab 4.2:</strong> DDoS Mitigation & Cloud Defenses - AWS Shield/WAF Configuration Lab (1 hour)</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>📁 Portfolio Project</h4>
+            <p><strong>DDoS Triage Workflow</strong> — Step-by-step mitigation plan for DDoS attacks. Includes detection methods, containment strategies, and cloud-based defense configurations.</p>
+          </div>
+          <div class="content-section">
+            <h4>🎯 Learning Objectives</h4>
+            <ul>
+              <li>Understand different DDoS attack types (Layer 3/4 and Layer 7)</li>
+              <li>Identify botnet traffic patterns in network logs</li>
+              <li>Implement rate-based detection logic</li>
+              <li>Configure cloud-based DDoS mitigation (AWS Shield, WAF, CloudFront)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="module-footer">
+          <span class="duration">⏱️ 2 sessions (2 hours)</span>
+          <span class="btn-secondary disabled">Locked</span>
+        </div>
+      </div>
+
+      <div class="module-detail-card locked" data-module="5">
+        <div class="module-header">
+          <span class="module-number">05</span>
+          <div class="module-title-section">
+            <h2>Malware Attack — The Hostile Takeover</h2>
+            <span class="badge locked">Locked</span>
+          </div>
+        </div>
+        <p class="module-description">Master malware analysis through static analysis, dynamic analysis, memory forensics, and reverse engineering basics.</p>
+        <div class="module-content">
+          <div class="content-section">
+            <h4>📚 Topics Covered</h4>
+            <ul>
+              <li><strong>Malware Triage Workflow:</strong> Malware Triage Checklist, Sandbox Analysis Workflow, Static Analysis (Strings, Hashes, File Metadata)</li>
+              <li><strong>Dynamic Analysis (Safe Environment):</strong> Introduction to Sandboxing and Behavioral Analysis, Observing File System/Registry Changes</li>
+              <li><strong>Memory Forensics:</strong> Volatility Framework Introduction, Key Commands (`pslist`, `connscan`), Identifying Malicious Processes and Network Connections</li>
+              <li><strong>Reverse Engineering Basics:</strong> Introduction to Disassemblers (Ghidra/IDA Free), Malware Family Identification</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>🧪 Labs</h4>
+            <ul>
+              <li><strong>Lab 5.1:</strong> Static Malware Analysis - Extract IOCs using strings, hashes, and metadata (1 hour)</li>
+              <li><strong>Lab 5.2:</strong> Memory Forensics with Volatility - Identify malicious processes and network connections (1.5 hours)</li>
+              <li><strong>Lab 5.3:</strong> Reverse Engineering & Malware Families - Ghidra Disassembly Lab (1 hour)</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>📁 Portfolio Project</h4>
+            <p><strong>Malware Triage Summary Report</strong> — Comprehensive malware analysis report synthesizing findings from static, dynamic, and memory analysis. Includes Executive Summary, File Information, Static/Dynamic/Memory Analysis Findings, Malware Family Classification, MITRE ATT&CK Mapping, Threat Assessment, and Recommendations.</p>
+          </div>
+          <div class="content-section">
+            <h4>🎯 Learning Objectives</h4>
+            <ul>
+              <li>Perform static malware analysis to extract IOCs</li>
+              <li>Conduct dynamic analysis in safe sandbox environments</li>
+              <li>Use Volatility Framework for memory forensics</li>
+              <li>Understand reverse engineering basics with Ghidra</li>
+              <li>Identify malware families and map to MITRE ATT&CK</li>
+            </ul>
+          </div>
+        </div>
+        <div class="module-footer">
+          <span class="duration">⏱️ 4 sessions (4 hours)</span>
+          <span class="btn-secondary disabled">Locked</span>
+        </div>
+      </div>
+
+      <div class="module-detail-card locked" data-module="6">
+        <div class="module-header">
+          <span class="module-number">06</span>
+          <div class="module-title-section">
+            <h2>Detection Engineering — Building the Defenses</h2>
+            <span class="badge locked">Locked</span>
+          </div>
+        </div>
+        <p class="module-description">Create and deploy detection rules using Suricata, YARA, and Sigma to proactively detect threats.</p>
+        <div class="module-content">
+          <div class="content-section">
+            <h4>📚 Topics Covered</h4>
+            <ul>
+              <li><strong>Introduction to Detection Engineering:</strong> The Detection Lifecycle (Identify, Develop, Test, Deploy, Tune), Writing a Basic Suricata Rule</li>
+              <li><strong>Suricata Rule Creation:</strong> Rule Syntax Cheat Sheet, Common Keywords (content, flow, sid), Testing and Tuning a Suricata Rule against synthetic traffic</li>
+              <li><strong>YARA Rule Creation:</strong> YARA Rule Syntax, Metadata, and String Matching, Writing a YARA Rule to detect a specific malware sample</li>
+              <li><strong>Sigma Rule Creation:</strong> Introduction to Sigma, Converting Sigma to SIEM Queries</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>🧪 Labs</h4>
+            <ul>
+              <li><strong>Lab 6.1:</strong> Suricata Rule Creation - Write and test rules to detect attack patterns (1 hour)</li>
+              <li><strong>Lab 6.2:</strong> YARA Rule Creation - Create YARA rules for malware detection (1 hour)</li>
+              <li><strong>Lab 6.3:</strong> Sigma Rules & SIEM Integration - Convert Sigma rules to SIEM queries (1 hour)</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>📁 Portfolio Project</h4>
+            <p><strong>Detection Rule Pack v1</strong> — A set of 5 detection rules (Suricata, YARA, or Sigma) for a specific threat (e.g., APT-style lateral movement using PsExec). Includes documented rules, test cases, test results, and false positive analysis.</p>
+          </div>
+          <div class="content-section">
+            <h4>🎯 Learning Objectives</h4>
+            <ul>
+              <li>Understand the detection engineering lifecycle</li>
+              <li>Create and test Suricata rules for network detection</li>
+              <li>Write YARA rules for malware file detection</li>
+              <li>Create Sigma rules and convert to SIEM queries</li>
+              <li>Test rules and analyze false positives</li>
+            </ul>
+          </div>
+        </div>
+        <div class="module-footer">
+          <span class="duration">⏱️ 3 sessions (3 hours)</span>
+          <span class="btn-secondary disabled">Locked</span>
+        </div>
+      </div>
+
+      <div class="module-detail-card locked" data-module="7">
+        <div class="module-header">
+          <span class="module-number">07</span>
+          <div class="module-title-section">
+            <h2>Live Attack & Defense — The Capstone Simulation</h2>
+            <span class="badge locked">Locked</span>
+          </div>
+        </div>
+        <p class="module-description">Apply all learned skills in a comprehensive multi-stage attack simulation with end-to-end incident response.</p>
+        <div class="module-content">
+          <div class="content-section">
+            <h4>📚 Topics Covered</h4>
+            <ul>
+              <li><strong>Multi-Stage Attack Simulation:</strong> Attack Chain Diagram (MITRE ATT&CK Mapping), Full Incident Response on a Simulated Multi-Stage Attack</li>
+              <li><strong>Live Triage and Containment:</strong> Containment Checklist, Communication Workflow, Performing Live Containment and Eradication Steps</li>
+              <li><strong>Timeline Building and Reporting:</strong> Timeline Creation Template, Executive Summary Writing</li>
+              <li><strong>Full Incident Report Creation:</strong> NIST 800-61 Steps Review, Complete incident documentation</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>🧪 Labs</h4>
+            <ul>
+              <li><strong>Capstone Lab 7.1:</strong> Multi-Stage Attack Simulation - Analyze complete attack scenario and perform end-to-end IR (2 hours)</li>
+              <li><strong>Capstone Challenge 7.2:</strong> Detect & Defend Challenge - Develop detection logic, investigate, and report under time pressure (2 hours)</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>📁 Portfolio Projects</h4>
+            <ul>
+              <li><strong>Full Incident Report with Timeline</strong> — 10-15 page comprehensive incident report documenting all phases of incident response</li>
+              <li><strong>10-Minute Incident Summary Challenge</strong> — Rapid analysis and executive summary creation under pressure</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>🎯 Learning Objectives</h4>
+            <ul>
+              <li>Analyze multi-stage attacks using MITRE ATT&CK framework</li>
+              <li>Perform live triage and containment during active incidents</li>
+              <li>Build comprehensive timelines from multiple log sources</li>
+              <li>Create professional incident reports following NIST 800-61</li>
+              <li>Rapidly analyze incidents and communicate findings to executives</li>
+            </ul>
+          </div>
+        </div>
+        <div class="module-footer">
+          <span class="duration">⏱️ 3 sessions (4.5 hours)</span>
+          <span class="btn-secondary disabled">Locked</span>
+        </div>
+      </div>
+
+      <div class="module-detail-card locked" data-module="8">
+        <div class="module-header">
+          <span class="module-number">08</span>
+          <div class="module-title-section">
+            <h2>SOC Interview Simulation — Career Readiness</h2>
+            <span class="badge locked">Locked</span>
+          </div>
+        </div>
+        <p class="module-description">Prepare for SOC job interviews with technical questions, behavioral prep, and career roadmap planning.</p>
+        <div class="module-content">
+          <div class="content-section">
+            <h4>📚 Topics Covered</h4>
+            <ul>
+              <li><strong>Technical Mock Interview:</strong> 45-Minute Mock Interview Script (30 Questions), Whiteboard-Style IR Scenario Walkthrough</li>
+              <li><strong>Behavioral Interview Prep:</strong> STAR Method Guide, Common Behavioral Questions</li>
+              <li><strong>Resume and LinkedIn Optimization:</strong> Resume tailoring, LinkedIn profile optimization, Portfolio showcase</li>
+              <li><strong>Career Roadmap:</strong> 90-Day Study Plan, 6-Month SOC Career Roadmap (Tier 1 → Tier 2), Final Course Quiz and Self-Assessment</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>🧪 Labs</h4>
+            <ul>
+              <li><strong>Lab 8.1:</strong> Technical Mock Interview - Practice 30 common SOC interview questions (1.5 hours)</li>
+              <li><strong>Lab 8.2:</strong> Behavioral Interview Prep - STAR method practice and career planning (1.5 hours)</li>
+            </ul>
+          </div>
+          <div class="content-section">
+            <h4>📁 Portfolio Project</h4>
+            <p><strong>Career Action Plan</strong> — Personalized career roadmap and interview prep. Includes optimized resume, LinkedIn profile, portfolio showcase, and 6-month career progression plan.</p>
+          </div>
+          <div class="content-section">
+            <h4>🎯 Learning Objectives</h4>
+            <ul>
+              <li>Answer technical SOC interview questions with confidence</li>
+              <li>Use STAR method for behavioral interview questions</li>
+              <li>Optimize resume and LinkedIn profile for SOC positions</li>
+              <li>Create a personalized 6-month career roadmap</li>
+              <li>Prepare for whiteboard-style IR scenarios</li>
+            </ul>
+          </div>
+        </div>
+        <div class="module-footer">
+          <span class="duration">⏱️ 2 sessions (3 hours)</span>
+          <span class="btn-secondary disabled">Locked</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SOC Analyst I — From Cradle to Grave. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+# Course-specific
+*.pcap
+*.dmp
+*.mem
+*.vmem
+*.raw
+*.dd
+*.img
+*.e01
+
+# Personal data
+personal-notes/
+private-data/
+credentials/
+*.key
+*.pem
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Lab Tutorial - SOC Analyst I</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body class="dark">
+  <nav class="site-nav">
+    <div class="logo">SOC Analyst I</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="modules.html">Modules</a></li>
+      <li><a href="lab.html" class="active">Labs</a></li>
+      <li><a href="dashboard.html">Progress</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="prompts.html">Prompts</a></li>
+      <li><a href="notebook.html">Notebook</a></li>
+      <li>
+        <button class="theme-toggle" aria-label="Toggle theme">🌓</button>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="tutorial-page">
+    <div class="tutorial-container">
+      <!-- Tutorial Header -->
+      <header class="tutorial-header">
+        <div class="breadcrumb">
+          <a href="lab.html">← Back to Labs</a>
+        </div>
+        <div class="tutorial-meta">
+          <span class="tutorial-module">Module 1: Phishing Attack</span>
+          <span class="tutorial-number">Lab 1.1</span>
+        </div>
+        <h1>Email Header Analysis and Spoofing Detection</h1>
+        <p class="tutorial-subtitle">Learn to extract and analyze email headers to identify spoofing and determine the true origin of an email</p>
+        <div class="tutorial-stats">
+          <span>⏱️ 1 hour</span>
+          <span>🟡 Intermediate</span>
+          <span>📊 Progress: <span id="progress-percent">0%</span></span>
+        </div>
+      </header>
+
+      <!-- Learning Objectives -->
+      <section class="learning-objectives">
+        <h2>🎯 Learning Objectives</h2>
+        <p>By the end of this lab, you will be able to:</p>
+        <ul>
+          <li><strong>Understand</strong> the structure and purpose of email headers</li>
+          <li><strong>Identify</strong> key email header fields and their significance</li>
+          <li><strong>Analyze</strong> email headers to detect spoofing attempts</li>
+          <li><strong>Apply</strong> header analysis techniques to real-world phishing emails</li>
+          <li><strong>Evaluate</strong> the authenticity of emails based on header evidence</li>
+        </ul>
+      </section>
+
+      <!-- Prerequisites -->
+      <section class="prerequisites">
+        <h2>📋 Prerequisites</h2>
+        <p>Before starting this lab, ensure you have:</p>
+        <ul>
+          <li>✅ Basic understanding of email systems</li>
+          <li>✅ Access to a text editor (VS Code, Notepad++, or similar)</li>
+          <li>✅ Internet connection for accessing online header analyzers</li>
+          <li>✅ Completed Module 1 Session 1.1 (Phishing Fundamentals)</li>
+        </ul>
+      </section>
+
+      <!-- Real-World Context -->
+      <section class="real-world-context">
+        <h2>🌍 Real-World Context</h2>
+        <div class="context-box">
+          <p><strong>Why This Matters:</strong> In a typical SOC environment, phishing emails represent approximately <strong>80% of all initial compromise vectors</strong>. As a SOC analyst, you'll encounter dozens of phishing reports daily. The ability to quickly and accurately analyze email headers is a fundamental skill that can prevent breaches before they occur.</p>
+          <p><strong>Real Scenario:</strong> A user reports receiving an email from "Amazon Security" asking them to verify their account. Your task is to determine if this email is legitimate or a phishing attempt. Email header analysis is your first line of defense.</p>
+        </div>
+      </section>
+
+      <!-- Step-by-Step Tutorial -->
+      <section class="tutorial-steps">
+        <h2>📚 Step-by-Step Tutorial</h2>
+        
+        <!-- Step 1 -->
+        <div class="tutorial-step" data-step="1">
+          <div class="step-header">
+            <span class="step-number">Step 1</span>
+            <h3>Understanding Email Headers</h3>
+            <button class="step-toggle">Expand</button>
+          </div>
+          <div class="step-content">
+            <div class="step-explanation">
+              <h4>What Are Email Headers?</h4>
+              <p>Email headers are metadata that contain information about the email's journey from sender to recipient. Think of them as a "passport" that shows every server the email passed through, when it was sent, and where it came from.</p>
+              
+              <div class="knowledge-check">
+                <h4>💡 Knowledge Check</h4>
+                <p><strong>Question:</strong> Why are email headers important for security analysis?</p>
+                <details>
+                  <summary>Show Answer</summary>
+                  <p>Email headers reveal the true origin of an email, which may differ from what the sender claims. They show the path the email took through mail servers, authentication results (SPF, DKIM, DMARC), and can reveal spoofing attempts.</p>
+                </details>
+              </div>
+
+              <h4>Key Header Fields to Know:</h4>
+              <div class="header-fields-table">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Field</th>
+                      <th>Purpose</th>
+                      <th>What to Look For</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>From</code></td>
+                      <td>Displayed sender address</td>
+                      <td>May be spoofed - don't trust this alone!</td>
+                    </tr>
+                    <tr>
+                      <td><code>Received</code></td>
+                      <td>Shows mail server path</td>
+                      <td>Read bottom-to-top to trace origin</td>
+                    </tr>
+                    <tr>
+                      <td><code>Return-Path</code></td>
+                      <td>Bounce-back address</td>
+                      <td>Often reveals true sender</td>
+                    </tr>
+                    <tr>
+                      <td><code>X-Originating-IP</code></td>
+                      <td>Source IP address</td>
+                      <td>Compare with claimed sender domain</td>
+                    </tr>
+                    <tr>
+                      <td><code>Received-SPF</code></td>
+                      <td>SPF authentication result</td>
+                      <td>"fail" = red flag for spoofing</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="step-action">
+              <h4>✅ Action Item</h4>
+              <p>Take a moment to review the header fields table above. These are the fields you'll be analyzing in this lab.</p>
+              <label class="checkbox-label">
+                <input type="checkbox" class="step-checkbox" data-step="1">
+                <span>I understand the key email header fields</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="tutorial-step" data-step="2">
+          <div class="step-header">
+            <span class="step-number">Step 2</span>
+            <h3>Extracting Email Headers</h3>
+            <button class="step-toggle">Expand</button>
+          </div>
+          <div class="step-content">
+            <div class="step-explanation">
+              <h4>How to Extract Headers</h4>
+              <p>Different email clients have different methods for viewing raw headers. Here's how to do it in common clients:</p>
+              
+              <div class="instruction-box">
+                <h4>📧 Gmail</h4>
+                <ol>
+                  <li>Open the email</li>
+                  <li>Click the three dots (⋮) in the top right</li>
+                  <li>Select "Show original"</li>
+                  <li>Copy all the text (this is the raw header)</li>
+                </ol>
+              </div>
+
+              <div class="instruction-box">
+                <h4>📧 Outlook</h4>
+                <ol>
+                  <li>Right-click on the email</li>
+                  <li>Select "View Source" or "View Message Source"</li>
+                  <li>Copy all the text</li>
+                </ol>
+              </div>
+
+              <div class="instruction-box">
+                <h4>📧 Apple Mail</h4>
+                <ol>
+                  <li>Select the email</li>
+                  <li>Go to View → Message → Raw Source</li>
+                  <li>Copy all the text</li>
+                </ol>
+              </div>
+
+              <div class="tip-box">
+                <strong>💡 Pro Tip:</strong> Always preserve the raw header format when copying. Don't reformat it, as spacing and line breaks contain important information.
+              </div>
+            </div>
+            <div class="step-action">
+              <h4>✅ Action Item</h4>
+              <p>For this lab, we'll use a sample header. Copy the header below into a text editor:</p>
+              <div class="code-block">
+                <pre><code>Received: from mail.amazon-security.com (mail.amazon-security.com [203.0.113.45])
+    by mail.example.com with SMTP id h12sm2345678pdb.0.2024.01.15.10.30.45
+    for <user@example.com>;
+    Mon, 15 Jan 2024 10:30:45 -0800 (PST)
+Received: from attacker.malicious.net [198.51.100.50] by mail.amazon-security.com with SMTP id a1b2c3d4e5f6g7h8
+    for <user@example.com>;
+    Mon, 15 Jan 2024 10:25:00 -0800
+Return-Path: <noreply@amazon-security.com>
+Received-SPF: fail (google.com: domain of amazon-security.com does not designate 198.51.100.50 as permitted sender)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amazon-security.com; ...
+From: Amazon Security <noreply@amazon-security.com>
+To: user@example.com
+Subject: Urgent: Verify Your Account
+Date: Mon, 15 Jan 2024 10:30:45 -0800
+Message-ID: <abc123@amazon-security.com>
+X-Originating-IP: [198.51.100.50]</code></pre>
+              </div>
+              <label class="checkbox-label">
+                <input type="checkbox" class="step-checkbox" data-step="2">
+                <span>I've copied the sample header to my text editor</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="tutorial-step" data-step="3">
+          <div class="step-header">
+            <span class="step-number">Step 3</span>
+            <h3>Analyzing Received Headers</h3>
+            <button class="step-toggle">Expand</button>
+          </div>
+          <div class="step-content">
+            <div class="step-explanation">
+              <h4>Reading Received Headers</h4>
+              <p><strong>Critical Rule:</strong> Read `Received` headers from <strong>bottom to top</strong>. The bottom-most `Received` header shows the first server that received the email (the origin), while the top-most shows the last server (your mail server).</p>
+              
+              <div class="visual-guide">
+                <h4>📊 Visual Guide: Reading Received Headers</h4>
+                <div class="received-flow">
+                  <div class="received-item">
+                    <strong>Top (Last Server):</strong> mail.example.com<br>
+                    <em>This is YOUR mail server - the final destination</em>
+                  </div>
+                  <div class="arrow">↓</div>
+                  <div class="received-item">
+                    <strong>Middle:</strong> mail.amazon-security.com [203.0.113.45]<br>
+                    <em>Intermediate mail server</em>
+                  </div>
+                  <div class="arrow">↓</div>
+                  <div class="received-item highlight">
+                    <strong>Bottom (First Server):</strong> attacker.malicious.net [198.51.100.50]<br>
+                    <em>⚠️ THIS IS THE TRUE ORIGIN - Red flag!</em>
+                  </div>
+                </div>
+              </div>
+
+              <h4>What to Look For:</h4>
+              <ul>
+                <li><strong>Suspicious domain names:</strong> Does the domain look legitimate? (e.g., "amazon-security.com" vs "amazon.com")</li>
+                <li><strong>IP address mismatches:</strong> Does the IP belong to the claimed domain?</li>
+                <li><strong>Unusual server names:</strong> "attacker.malicious.net" is obviously suspicious!</li>
+              </ul>
+            </div>
+            <div class="step-action">
+              <h4>✅ Hands-On Analysis</h4>
+              <p>Using the sample header, answer these questions:</p>
+              <div class="quiz-questions">
+                <div class="quiz-item">
+                  <p><strong>Q1:</strong> What is the first server that received this email? (Read from bottom)</p>
+                  <input type="text" class="quiz-input" placeholder="Enter your answer">
+                  <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong> attacker.malicious.net [198.51.100.50]</p>
+                    <p>This is found in the bottom-most Received header. This is a major red flag!</p>
+                  </details>
+                </div>
+                <div class="quiz-item">
+                  <p><strong>Q2:</strong> Does this match what the "From" field claims?</p>
+                  <select class="quiz-select">
+                    <option value="">Select answer</option>
+                    <option value="yes">Yes, it matches</option>
+                    <option value="no">No, it doesn't match</option>
+                  </select>
+                  <details>
+                    <summary>Show Answer</summary>
+                    <p><strong>Answer:</strong> No, it doesn't match. The From field says "amazon-security.com" but the email actually came from "attacker.malicious.net" - this is spoofing!</p>
+                  </details>
+                </div>
+              </div>
+              <label class="checkbox-label">
+                <input type="checkbox" class="step-checkbox" data-step="3">
+                <span>I've analyzed the Received headers and identified the true origin</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="tutorial-step" data-step="4">
+          <div class="step-header">
+            <span class="step-number">Step 4</span>
+            <h3>Checking Authentication Headers</h3>
+            <button class="step-toggle">Expand</button>
+          </div>
+          <div class="step-content">
+            <div class="step-explanation">
+              <h4>SPF, DKIM, and DMARC</h4>
+              <p>These are email authentication mechanisms that help verify if an email is legitimate:</p>
+              
+              <div class="auth-mechanisms">
+                <div class="auth-box">
+                  <h4>🔐 SPF (Sender Policy Framework)</h4>
+                  <p>Checks if the sending IP is authorized by the domain owner.</p>
+                  <ul>
+                    <li><strong>pass:</strong> ✅ IP is authorized</li>
+                    <li><strong>fail:</strong> ❌ IP is NOT authorized - likely spoofed</li>
+                    <li><strong>neutral:</strong> ⚠️ No policy found</li>
+                  </ul>
+                </div>
+                <div class="auth-box">
+                  <h4>🔐 DKIM (DomainKeys Identified Mail)</h4>
+                  <p>Cryptographic signature that verifies the email wasn't tampered with.</p>
+                  <ul>
+                    <li><strong>pass:</strong> ✅ Signature valid</li>
+                    <li><strong>fail:</strong> ❌ Signature invalid or missing</li>
+                  </ul>
+                </div>
+                <div class="auth-box">
+                  <h4>🔐 DMARC (Domain-based Message Authentication)</h4>
+                  <p>Policy that tells receiving servers what to do with failed emails.</p>
+                  <ul>
+                    <li><strong>pass:</strong> ✅ Email passes policy</li>
+                    <li><strong>fail:</strong> ❌ Email fails policy</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="warning-box">
+                <strong>⚠️ Critical Finding:</strong> In our sample header, we see:
+                <code>Received-SPF: fail (google.com: domain of amazon-security.com does not designate 198.51.100.50 as permitted sender)</code>
+                <p>This means the IP address 198.51.100.50 is NOT authorized to send emails on behalf of amazon-security.com. This is a strong indicator of spoofing!</p>
+              </div>
+            </div>
+            <div class="step-action">
+              <h4>✅ Analysis Task</h4>
+              <p>In the sample header, what does the SPF result tell us?</p>
+              <textarea class="analysis-textarea" placeholder="Write your analysis here..."></textarea>
+              <details>
+                <summary>Show Expected Analysis</summary>
+                <p><strong>Expected Answer:</strong> The SPF check shows "fail", which means the sending IP (198.51.100.50) is not authorized to send emails for the domain amazon-security.com. Combined with the fact that the email originated from attacker.malicious.net, this confirms the email is spoofed. A legitimate email from Amazon would pass SPF validation.</p>
+              </details>
+              <label class="checkbox-label">
+                <input type="checkbox" class="step-checkbox" data-step="4">
+                <span>I understand how to interpret SPF, DKIM, and DMARC results</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="tutorial-step" data-step="5">
+          <div class="step-header">
+            <span class="step-number">Step 5</span>
+            <h3>Identifying Spoofing Indicators</h3>
+            <button class="step-toggle">Expand</button>
+          </div>
+          <div class="step-content">
+            <div class="step-explanation">
+              <h4>Common Spoofing Indicators</h4>
+              <p>Let's compile all the red flags we've found:</p>
+              
+              <div class="indicators-list">
+                <div class="indicator-item danger">
+                  <strong>🔴 Indicator 1: Suspicious Origin Server</strong>
+                  <p>The email originated from "attacker.malicious.net" - clearly not Amazon's infrastructure</p>
+                </div>
+                <div class="indicator-item danger">
+                  <strong>🔴 Indicator 2: SPF Failure</strong>
+                  <p>The SPF check failed, meaning the IP is not authorized to send for amazon-security.com</p>
+                </div>
+                <div class="indicator-item danger">
+                  <strong>🔴 Indicator 3: IP Address Mismatch</strong>
+                  <p>X-Originating-IP shows 198.51.100.50, which matches the attacker's IP, not Amazon's</p>
+                </div>
+                <div class="indicator-item warning">
+                  <strong>🟡 Indicator 4: Domain Similarity</strong>
+                  <p>"amazon-security.com" is similar to "amazon.com" but is a different domain (typosquatting)</p>
+                </div>
+              </div>
+
+              <h4>Conclusion</h4>
+              <div class="conclusion-box">
+                <p><strong>This email is SPOOFED.</strong> The attacker:</p>
+                <ol>
+                  <li>Registered a domain similar to Amazon's (amazon-security.com)</li>
+                  <li>Sent the email from their own server (attacker.malicious.net)</li>
+                  <li>The email failed SPF validation</li>
+                  <li>The true origin IP doesn't match Amazon's infrastructure</li>
+                </ol>
+                <p><strong>Action Required:</strong> This email should be blocked, and the domain/IP should be added to threat intelligence feeds.</p>
+              </div>
+            </div>
+            <div class="step-action">
+              <h4>✅ Final Analysis Task</h4>
+              <p>Create your one-page analysis document. Include:</p>
+              <ul>
+                <li>Summary of findings</li>
+                <li>List of all spoofing indicators</li>
+                <li>IOCs (Indicators of Compromise): Domain, IP, Email address</li>
+                <li>Recommendation: Is this email malicious? Why?</li>
+              </ul>
+              <div class="template-download">
+                <a href="#" class="btn-secondary">📄 Download Analysis Template</a>
+              </div>
+              <label class="checkbox-label">
+                <input type="checkbox" class="step-checkbox" data-step="5">
+                <span>I've completed my analysis document</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="tutorial-step" data-step="6">
+          <div class="step-header">
+            <span class="step-number">Step 6</span>
+            <h3>Using Online Header Analyzers</h3>
+            <button class="step-toggle">Expand</button>
+          </div>
+          <div class="step-content">
+            <div class="step-explanation">
+              <h4>Tools for Header Analysis</h4>
+              <p>While manual analysis is important, online tools can help automate and visualize header analysis:</p>
+              
+              <div class="tools-grid">
+                <div class="tool-card">
+                  <h4>🔧 MXToolbox Email Header Analyzer</h4>
+                  <p><strong>URL:</strong> <a href="https://mxtoolbox.com/EmailHeaders.aspx" target="_blank">mxtoolbox.com/EmailHeaders.aspx</a></p>
+                  <p><strong>Features:</strong></p>
+                  <ul>
+                    <li>Visual timeline of email path</li>
+                    <li>SPF/DKIM/DMARC validation</li>
+                    <li>IP geolocation</li>
+                    <li>Blacklist checking</li>
+                  </ul>
+                  <p><strong>How to Use:</strong></p>
+                  <ol>
+                    <li>Paste your raw email header</li>
+                    <li>Click "Analyze Header"</li>
+                    <li>Review the visual timeline and validation results</li>
+                  </ol>
+                </div>
+                <div class="tool-card">
+                  <h4>🔧 Google Admin Toolbox Messageheader</h4>
+                  <p><strong>URL:</strong> <a href="https://toolbox.googleapps.com/apps/messageheader/" target="_blank">toolbox.googleapps.com/apps/messageheader/</a></p>
+                  <p><strong>Features:</strong></p>
+                  <ul>
+                    <li>Clean header visualization</li>
+                    <li>Authentication status</li>
+                    <li>Server path analysis</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="practice-task">
+                <h4>🎯 Practice Task</h4>
+                <p>Take the sample header from this lab and paste it into MXToolbox's analyzer. Compare the automated analysis with your manual findings. Do they match?</p>
+                <label class="checkbox-label">
+                  <input type="checkbox" class="step-checkbox" data-step="6">
+                  <span>I've used an online header analyzer to verify my findings</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Knowledge Check -->
+        <section class="knowledge-check-section">
+          <h2>🧠 Knowledge Check</h2>
+          <p>Test your understanding before moving on:</p>
+          <div class="knowledge-questions">
+            <div class="kq-item">
+              <p><strong>1. In what order should you read Received headers?</strong></p>
+              <div class="kq-options">
+                <label><input type="radio" name="kq1" value="top"> Top to bottom</label>
+                <label><input type="radio" name="kq1" value="bottom" data-correct> Bottom to top</label>
+                <label><input type="radio" name="kq1" value="random"> Random order</label>
+              </div>
+            </div>
+            <div class="kq-item">
+              <p><strong>2. What does an SPF "fail" result indicate?</strong></p>
+              <div class="kq-options">
+                <label><input type="radio" name="kq2" value="legit"> Email is definitely legitimate</label>
+                <label><input type="radio" name="kq2" value="spoof" data-correct> Email may be spoofed</label>
+                <label><input type="radio" name="kq2" value="unknown"> Cannot determine</label>
+              </div>
+            </div>
+            <div class="kq-item">
+              <p><strong>3. Which header field shows the true origin IP?</strong></p>
+              <div class="kq-options">
+                <label><input type="radio" name="kq3" value="from"> From</label>
+                <label><input type="radio" name="kq3" value="xip" data-correct> X-Originating-IP</label>
+                <label><input type="radio" name="kq3" value="subject"> Subject</label>
+              </div>
+            </div>
+          </div>
+          <button class="btn-primary" onclick="checkKnowledge()">Check Answers</button>
+        </section>
+
+        <!-- Lab Completion -->
+        <section class="lab-completion">
+          <h2>✅ Lab Completion Checklist</h2>
+          <div class="completion-checklist">
+            <label class="checkbox-label">
+              <input type="checkbox" id="check1">
+              <span>Understood email header structure and key fields</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="check2">
+              <span>Analyzed Received headers to identify true origin</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="check3">
+              <span>Interpreted SPF, DKIM, and DMARC results</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="check4">
+              <span>Identified all spoofing indicators</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="check5">
+              <span>Created analysis document with findings</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="check6">
+              <span>Used online header analyzer tool</span>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" id="check7">
+              <span>Completed knowledge check questions</span>
+            </label>
+          </div>
+          <div class="completion-actions">
+            <button class="btn-primary" onclick="markComplete()">Mark Lab as Complete</button>
+            <a href="lab.html" class="btn-secondary">Return to Labs</a>
+          </div>
+        </section>
+
+        <!-- Next Steps -->
+        <section class="next-steps">
+          <h2>🚀 Next Steps</h2>
+          <p>Congratulations on completing Lab 1.1! Here's what's next:</p>
+          <div class="next-steps-grid">
+            <div class="next-step-card">
+              <h4>📧 Lab 1.2: OSINT Threat Enrichment</h4>
+              <p>Now that you've identified IOCs from the email header, learn how to enrich them with threat intelligence using OSINT tools.</p>
+              <a href="lab-tutorial.html?lab=1.2" class="btn-secondary">Start Next Lab</a>
+            </div>
+            <div class="next-step-card">
+              <h4>📚 Review Module 1 Content</h4>
+              <p>Review the module materials to reinforce your understanding of phishing attacks.</p>
+              <a href="modules.html#module-1" class="btn-secondary">View Module</a>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SOC Analyst I — From Cradle to Grave. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Progress tracking
+    const checkboxes = document.querySelectorAll('.step-checkbox, #check1, #check2, #check3, #check4, #check5, #check6, #check7');
+    const progressPercent = document.getElementById('progress-percent');
+    
+    function updateProgress() {
+      const checked = document.querySelectorAll('.step-checkbox:checked, #check1:checked, #check2:checked, #check3:checked, #check4:checked, #check5:checked, #check6:checked, #check7:checked').length;
+      const total = checkboxes.length;
+      const percent = Math.round((checked / total) * 100);
+      progressPercent.textContent = percent + '%';
+      
+      // Save progress
+      localStorage.setItem('lab-1.1-progress', percent);
+    }
+    
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', updateProgress);
+      // Load saved state
+      const saved = localStorage.getItem('lab-1.1-progress');
+      if (saved) {
+        // Restore checkbox states if needed
+      }
+    });
+    
+    // Step toggle functionality
+    document.querySelectorAll('.step-toggle').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const step = this.closest('.tutorial-step');
+        const content = step.querySelector('.step-content');
+        const isExpanded = content.style.display !== 'none';
+        
+        content.style.display = isExpanded ? 'none' : 'block';
+        this.textContent = isExpanded ? 'Expand' : 'Collapse';
+      });
+    });
+    
+    // Knowledge check
+    function checkKnowledge() {
+      const questions = document.querySelectorAll('.kq-item');
+      let correct = 0;
+      let total = questions.length;
+      
+      questions.forEach(q => {
+        const correctAnswer = q.querySelector('input[data-correct]');
+        const selected = q.querySelector('input:checked');
+        if (selected && selected === correctAnswer) {
+          correct++;
+          q.classList.add('correct');
+        } else {
+          q.classList.add('incorrect');
+        }
+      });
+      
+      alert(`You got ${correct} out of ${total} correct! ${correct === total ? 'Excellent work! 🎉' : 'Review the material and try again.'}`);
+    }
+    
+    function markComplete() {
+      const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+      if (allChecked) {
+        localStorage.setItem('lab-1.1-complete', 'true');
+        alert('🎉 Congratulations! Lab 1.1 marked as complete!');
+        window.location.href = 'lab.html';
+      } else {
+        alert('Please complete all checklist items before marking as complete.');
+      }
+    }
+    
+    // Initialize - expand first step
+    document.querySelector('.tutorial-step').querySelector('.step-content').style.display = 'block';
+    document.querySelector('.tutorial-step').querySelector('.step-toggle').textContent = 'Collapse';
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Portfolio Projects - SOC Analyst I</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body class="dark">
+  <nav class="site-nav">
+    <div class="logo">SOC Analyst I</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="modules.html">Modules</a></li>
+      <li><a href="lab.html">Labs</a></li>
+      <li><a href="dashboard.html">Progress</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="prompts.html">Prompts</a></li>
+      <li><a href="notebook.html">Notebook</a></li>
+      <li>
+        <button class="theme-toggle" aria-label="Toggle theme">🌓</button>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="portfolio-page">
+    <header class="page-header">
+      <h1>Portfolio Projects</h1>
+      <p>Build LinkedIn-ready projects that showcase your SOC analyst skills to employers</p>
+    </header>
+
+    <div class="container">
+      <section class="portfolio-intro">
+        <div class="intro-card">
+          <h2>Why Build a Portfolio?</h2>
+          <p>Each module includes a portfolio project designed to demonstrate real-world SOC capabilities. These projects are:</p>
+          <ul>
+            <li>✅ LinkedIn-ready and shareable</li>
+            <li>✅ Based on real-world scenarios</li>
+            <li>✅ Aligned with industry standards (NIST 800-61)</li>
+            <li>✅ Perfect for job applications and interviews</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="portfolio-projects">
+        <h2 class="section-title">Portfolio Projects by Module</h2>
+        <div class="portfolio-grid">
+          
+          <!-- Project 1.1 -->
+          <div class="portfolio-card" data-module="1">
+            <div class="portfolio-header">
+              <span class="portfolio-module">Module 1: Phishing</span>
+              <span class="portfolio-status completed">Available</span>
+            </div>
+            <h3>Phishing Triage Playbook</h3>
+            <p class="portfolio-description">Create a comprehensive, reusable playbook for phishing triage that demonstrates your email header analysis, OSINT, and PCAP analysis skills.</p>
+            <div class="portfolio-skills">
+              <span class="skill-tag">Email Header Analysis</span>
+              <span class="skill-tag">OSINT</span>
+              <span class="skill-tag">PCAP Analysis</span>
+              <span class="skill-tag">Incident Response</span>
+            </div>
+            <div class="portfolio-deliverable">
+              <strong>Deliverable:</strong> Professional playbook document with executive summary, investigation process, key findings, and recommendations
+            </div>
+            <div class="portfolio-actions">
+              <a href="lab.html?module=1" class="btn-secondary btn-sm">View related labs</a>
+              <a href="modules.html#module-1" class="btn-secondary btn-sm">Module details</a>
+            </div>
+          </div>
+
+          <!-- Project 2.1 -->
+          <div class="portfolio-card" data-module="2">
+            <div class="portfolio-header">
+              <span class="portfolio-module">Module 2: Unauthorized Access</span>
+              <span class="portfolio-status locked">Locked</span>
+            </div>
+            <h3>Unauthorized Access IR Report</h3>
+            <p class="portfolio-description">Create a full incident report for an unauthorized access incident following NIST 800-61 framework.</p>
+            <div class="portfolio-skills">
+              <span class="skill-tag">Host Log Analysis</span>
+              <span class="skill-tag">IAM Investigation</span>
+              <span class="skill-tag">Timeline Creation</span>
+              <span class="skill-tag">NIST 800-61</span>
+            </div>
+            <div class="portfolio-deliverable">
+              <strong>Deliverable:</strong> Complete incident report with timeline, IOCs, containment actions, and recommendations
+            </div>
+            <div class="portfolio-actions">
+              <span class="btn-secondary btn-sm disabled">Complete Module 1 first</span>
+            </div>
+          </div>
+
+          <!-- Project 3.1 -->
+          <div class="portfolio-card" data-module="3">
+            <div class="portfolio-header">
+              <span class="portfolio-module">Module 3: Data Exfiltration</span>
+              <span class="portfolio-status locked">Locked</span>
+            </div>
+            <h3>Data Exfil Detection Blueprint</h3>
+            <p class="portfolio-description">Create a detection blueprint for data exfiltration with detection rules and analysis methodology.</p>
+            <div class="portfolio-skills">
+              <span class="skill-tag">Network Analysis</span>
+              <span class="skill-tag">Cloud Forensics</span>
+              <span class="skill-tag">Detection Engineering</span>
+              <span class="skill-tag">VPC Flow Logs</span>
+            </div>
+            <div class="portfolio-deliverable">
+              <strong>Deliverable:</strong> Detection rule set and comprehensive analysis report
+            </div>
+            <div class="portfolio-actions">
+              <span class="btn-secondary btn-sm disabled">Complete Module 2 first</span>
+            </div>
+          </div>
+
+          <!-- Project 4.1 -->
+          <div class="portfolio-card" data-module="4">
+            <div class="portfolio-header">
+              <span class="portfolio-module">Module 4: DDoS Attack</span>
+              <span class="portfolio-status locked">Locked</span>
+            </div>
+            <h3>DDoS Triage Workflow</h3>
+            <p class="portfolio-description">Create a step-by-step DDoS mitigation workflow with cloud defense strategies.</p>
+            <div class="portfolio-skills">
+              <span class="skill-tag">DDoS Detection</span>
+              <span class="skill-tag">Cloud Mitigation</span>
+              <span class="skill-tag">Network Analysis</span>
+              <span class="skill-tag">AWS Shield</span>
+            </div>
+            <div class="portfolio-deliverable">
+              <strong>Deliverable:</strong> Workflow document with cloud defense strategies and mitigation steps
+            </div>
+            <div class="portfolio-actions">
+              <span class="btn-secondary btn-sm disabled">Complete Module 3 first</span>
+            </div>
+          </div>
+
+          <!-- Project 5.1 -->
+          <div class="portfolio-card" data-module="5">
+            <div class="portfolio-header">
+              <span class="portfolio-module">Module 5: Malware Attack</span>
+              <span class="portfolio-status locked">Locked</span>
+            </div>
+            <h3>Malware Triage Summary Report</h3>
+            <p class="portfolio-description">Create a comprehensive malware analysis report demonstrating static, dynamic, and memory forensics skills.</p>
+            <div class="portfolio-skills">
+              <span class="skill-tag">Static Analysis</span>
+              <span class="skill-tag">Dynamic Analysis</span>
+              <span class="skill-tag">Memory Forensics</span>
+              <span class="skill-tag">Reverse Engineering</span>
+            </div>
+            <div class="portfolio-deliverable">
+              <strong>Deliverable:</strong> Full malware analysis report with IOCs, behavioral analysis, and recommendations
+            </div>
+            <div class="portfolio-actions">
+              <span class="btn-secondary btn-sm disabled">Complete Module 4 first</span>
+            </div>
+          </div>
+
+          <!-- Project 6.1 -->
+          <div class="portfolio-card" data-module="6">
+            <div class="portfolio-header">
+              <span class="portfolio-module">Module 6: Detection Engineering</span>
+              <span class="portfolio-status locked">Locked</span>
+            </div>
+            <h3>Detection Rule Pack v1</h3>
+            <p class="portfolio-description">Create a set of detection rules for a specific threat using Suricata, YARA, and Sigma.</p>
+            <div class="portfolio-skills">
+              <span class="skill-tag">Suricata Rules</span>
+              <span class="skill-tag">YARA Rules</span>
+              <span class="skill-tag">Sigma Rules</span>
+              <span class="skill-tag">SIEM Integration</span>
+            </div>
+            <div class="portfolio-deliverable">
+              <strong>Deliverable:</strong> A set of 5 detection rules with documentation and testing results
+            </div>
+            <div class="portfolio-actions">
+              <span class="btn-secondary btn-sm disabled">Complete Module 5 first</span>
+            </div>
+          </div>
+
+          <!-- Project 7.1 -->
+          <div class="portfolio-card capstone" data-module="7">
+            <div class="portfolio-header">
+              <span class="portfolio-module">Module 7: Live Attack & Defense</span>
+              <span class="portfolio-status locked">Locked</span>
+            </div>
+            <h3>Full Incident Report with Timeline</h3>
+            <p class="portfolio-description">Create a comprehensive incident report for a multi-stage attack simulation, demonstrating end-to-end incident response capabilities.</p>
+            <div class="portfolio-skills">
+              <span class="skill-tag">Multi-Stage Attack</span>
+              <span class="skill-tag">Containment</span>
+              <span class="skill-tag">Eradication</span>
+              <span class="skill-tag">Incident Reporting</span>
+            </div>
+            <div class="portfolio-deliverable">
+              <strong>Deliverable:</strong> Complete incident report with timeline, containment actions, eradication steps, and lessons learned
+            </div>
+            <div class="portfolio-actions">
+              <span class="btn-secondary btn-sm disabled">Complete Module 6 first</span>
+            </div>
+          </div>
+
+          <!-- Project 8.1 -->
+          <div class="portfolio-card" data-module="8">
+            <div class="portfolio-header">
+              <span class="portfolio-module">Module 8: Interview Prep</span>
+              <span class="portfolio-status locked">Locked</span>
+            </div>
+            <h3>10-Minute Incident Summary Challenge</h3>
+            <p class="portfolio-description">Practice creating concise incident summaries that demonstrate your ability to communicate technical findings to executives.</p>
+            <div class="portfolio-skills">
+              <span class="skill-tag">Executive Communication</span>
+              <span class="skill-tag">Incident Summarization</span>
+              <span class="skill-tag">Technical Writing</span>
+              <span class="skill-tag">Time Management</span>
+            </div>
+            <div class="portfolio-deliverable">
+              <strong>Deliverable:</strong> Multiple 10-minute incident summaries for different scenarios
+            </div>
+            <div class="portfolio-actions">
+              <span class="btn-secondary btn-sm disabled">Complete Module 7 first</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="portfolio-tips">
+        <h2 class="section-title">Portfolio Building Tips</h2>
+        <div class="tips-grid">
+          <div class="tip-card">
+            <h4>📝 Use Professional Templates</h4>
+            <p>All projects include templates aligned with NIST 800-61 standards. Use them to ensure consistency and professionalism.</p>
+          </div>
+          <div class="tip-card">
+            <h4>🔗 Link to Your Labs</h4>
+            <p>Reference the labs you completed in each project. This shows employers you have hands-on experience, not just theoretical knowledge.</p>
+          </div>
+          <div class="tip-card">
+            <h4>📊 Include Visuals</h4>
+            <p>Add screenshots, diagrams, and timelines to make your portfolio projects more engaging and easier to understand.</p>
+          </div>
+          <div class="tip-card">
+            <h4>💼 LinkedIn Ready</h4>
+            <p>Each project is designed to be shared on LinkedIn. Use them to demonstrate your skills and attract recruiters.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 SOC Analyst I — From Cradle to Grave. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+

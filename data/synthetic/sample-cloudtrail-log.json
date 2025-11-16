@@ -1,0 +1,33 @@
+{
+  "eventVersion": "1.08",
+  "userIdentity": {
+    "type": "IAMUser",
+    "principalId": "AIDAEXAMPLE",
+    "arn": "arn:aws:iam::123456789012:user/jdoe",
+    "accountId": "123456789012",
+    "userName": "jdoe"
+  },
+  "eventTime": "2024-01-15T10:30:45Z",
+  "eventSource": "iam.amazonaws.com",
+  "eventName": "CreateAccessKey",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "198.51.100.50",
+  "userAgent": "aws-cli/2.0.0 Python/3.8.0 Linux/5.4.0",
+  "requestParameters": {
+    "userName": "jdoe"
+  },
+  "responseElements": {
+    "accessKey": {
+      "userName": "jdoe",
+      "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+      "status": "Active"
+    }
+  },
+  "requestID": "example-request-id",
+  "eventID": "example-event-id",
+  "readOnly": false,
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012"
+}
+
