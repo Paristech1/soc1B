@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Notebook - SOC Analyst I</title>
+  <link rel="stylesheet" href="styles.css">
+  
+
+<script>
+  // Load saved theme immediately to prevent flash
+  (function() {
+    try {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.classList.add(savedTheme);
+      if (document.body) {
+        document.body.classList.add(savedTheme);
+      } else {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add(savedTheme);
+        });
+      }
+    } catch(e) {
+      // Fallback to dark if localStorage fails
+      document.documentElement.classList.add('dark');
+    }
+  })();
+</script>
+<script src="app.js" defer></script>
+</head>
+<body class="dark">
+  <nav class="site-nav">
+    <div class="logo">SOC Analyst I</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="modules.html">Modules</a></li>
+      <li><a href="lab.html">Labs</a></li>
+      <li><a href="dashboard.html">Progress</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="notebook.html" class="active">Notebook</a></li>
+      <li>
+        <button class="theme-toggle" aria-label="Toggle theme">🌓</button>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="notebook-page">
+    <header class="page-header">
+      <h1>📓 Notebook LLM Prompts</h1>
+      <p>Ready-to-use prompts for creating video tutorials on each module. Copy and paste these prompts into your notebook LLM to generate comprehensive video tutorials.</p>
+    </header>
+
+    <div class="container">
+      <!-- Module 1: Phishing Attack -->
+      <section class="prompt-section">
+        <div class="prompt-header">
+          <span class="module-icon">📧</span>
+          <div>
+            <h2>Module 1: Phishing Attack — The Gateway Incident</h2>
+            <p class="module-subtitle">Email header analysis, OSINT enrichment, PCAP analysis, and incident ticketing</p>
+          </div>
+        </div>
+        <div class="prompt-card">
+          <div class="prompt-actions">
+            <button class="btn-copy" onclick="copyPrompt('prompt-1')">📋 Copy Prompt</button>
+          </div>
+          <div class="prompt-content" id="prompt-1">
+            <p><strong>Create a comprehensive video tutorial teaching Module 1: Phishing Attack — The Gateway Incident from the SOC Analyst I course.</strong></p>
+            
+            <p><strong>Learning Objectives:</strong> By the end of this tutorial, students should be able to extract and analyze email headers to identify spoofing, use OSINT tools to enrich IOCs with threat intelligence, analyze PCAP files for C2 and data exfiltration, and create professional incident tickets following NIST 800-61.</p>
+            
+            <p><strong>Topics to Cover:</strong></p>
+            <ol>
+              <li><strong>Phishing Triage Workflow:</strong> Explain the IR Checklist and Phishing Response Template. Show how phishing represents 80% of initial compromise vectors. Walk through the phishing kill chain: reconnaissance, weaponization, delivery, exploitation, and post-compromise activity.</li>
+              <li><strong>Email Header Analysis:</strong> Demonstrate how to extract headers from common email clients (Outlook, Gmail). Explain key fields: From, To, Subject, Date, Message-ID, Received, Return-Path, and X-Originating-IP. Show how to identify domain spoofing, verify sender domains against sending server IPs, and check SPF/DKIM/DMARC authentication results. Include a hands-on walkthrough analyzing a sample phishing email header.</li>
+              <li><strong>OSINT for Threat Enrichment:</strong> Teach how to use VirusTotal for file and domain reputation checks, AbuseIPDB for IP reputation, Whois for domain registration information, and Shodan for identifying exposed services. Demonstrate a complete OSINT investigation workflow on a suspicious domain, showing how to interpret threat intelligence reports and when to escalate based on severity.</li>
+              <li><strong>PCAP Analysis of Exfil Attempts:</strong> Show how to use Wireshark to analyze network traffic for post-compromise phishing activity. Demonstrate filtering for DNS queries, HTTP requests, and other protocols. Explain how to identify C2 connections, data exfiltration patterns, and connections to known malicious IPs or domains. Walk through analyzing a sample PCAP file from a phishing incident.</li>
+              <li><strong>NIST 800-61 Framework:</strong> Explain the four phases of incident response: preparation, detection and analysis, containment/eradication/recovery, and post-incident activities. Show how to create a professional incident ticket documenting all findings with evidence and timestamps.</li>
+            </ol>
+            
+            <p><strong>Hands-On Labs to Reference:</strong></p>
+            <ul>
+              <li>Lab 1.1: Email Header Analysis and Spoofing Detection</li>
+              <li>Lab 1.2: OSINT Threat Enrichment</li>
+              <li>Lab 1.3: PCAP Analysis and Incident Ticket Creation</li>
+            </ul>
+            
+            <p><strong>Teaching Style:</strong> Use visual demonstrations, step-by-step walkthroughs, real-world examples, and practical exercises. Include diagrams showing email header structure, the phishing kill chain, and the NIST 800-61 framework. Make it engaging and practical for visual learners.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 2: Unauthorized Access -->
+      <section class="prompt-section">
+        <div class="prompt-header">
+          <span class="module-icon">🔐</span>
+          <div>
+            <h2>Module 2: Unauthorized Access — The Insider & External Threat</h2>
+            <p class="module-subtitle">IAM abuse, privilege escalation, host log analysis, and cloud IAM investigation</p>
+          </div>
+        </div>
+        <div class="prompt-card">
+          <div class="prompt-actions">
+            <button class="btn-copy" onclick="copyPrompt('prompt-2')">📋 Copy Prompt</button>
+          </div>
+          <div class="prompt-content" id="prompt-2">
+            <p><strong>Create a comprehensive video tutorial teaching Module 2: Unauthorized Access — The Insider & External Threat from the SOC Analyst I course.</strong></p>
+            
+            <p><strong>Learning Objectives:</strong> By the end of this tutorial, students should be able to investigate IAM abuse and privilege escalation attacks, analyze host logs (Linux and Windows) for unauthorized access, investigate cloud IAM abuse using AWS CloudTrail and GuardDuty, and detect lateral movement across systems.</p>
+            
+            <p><strong>Topics to Cover:</strong></p>
+            <ol>
+              <li><strong>IAM Abuse & Privilege Escalation:</strong> Explain AWS IAM policy investigation workflows. Show how to identify privilege escalation attempts, unauthorized permission changes, and IAM policy misconfigurations. Demonstrate Linux permissions and how attackers exploit them. Walk through investigating failed login attempts in both Linux auth.log and AWS CloudTrail logs.</li>
+              <li><strong>Host Log Analysis:</strong> Teach Linux log analysis using journalctl commands. Show Windows Event Log (Security) analysis for unauthorized access. Demonstrate how to create user activity timelines from host logs. Explain key log entries to look for: failed logins, privilege escalations, suspicious user activity, and file access patterns.</li>
+              <li><strong>Lateral Movement Detection:</strong> Explain common attacker tools and techniques for lateral movement. Show how to detect SSH brute force attacks in network traffic. Demonstrate analyzing network traffic for suspicious file transfers and unauthorized connections. Walk through identifying patterns that indicate lateral movement across systems.</li>
+              <li><strong>Cloud-Specific Unauthorized Access:</strong> Teach how to investigate AWS GuardDuty alerts related to unauthorized access. Show how to analyze S3 bucket misconfigurations and unauthorized access attempts. Demonstrate CloudTrail log analysis for IAM abuse, including identifying suspicious API calls, unusual access patterns, and privilege escalation attempts.</li>
+            </ol>
+            
+            <p><strong>Hands-On Labs to Reference:</strong></p>
+            <ul>
+              <li>Lab 2.1: IAM Abuse & Privilege Escalation - Investigating Failed Login Attempts</li>
+              <li>Lab 2.2: Host Log Analysis & Timeline - User Activity Timeline Creation</li>
+              <li>Lab 2.3: Cloud IAM Investigation - Detecting SSH Brute Force and Suspicious File Transfers</li>
+            </ul>
+            
+            <p><strong>Teaching Style:</strong> Use visual demonstrations of log analysis, step-by-step command walkthroughs, real-world attack scenarios, and practical exercises. Include diagrams showing IAM policy structures, log analysis workflows, and lateral movement attack chains. Make it engaging and practical for visual learners.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 3: Data Exfiltration -->
+      <section class="prompt-section">
+        <div class="prompt-header">
+          <span class="module-icon">📤</span>
+          <div>
+            <h2>Module 3: Data Loss / Exfiltration — Protecting the Crown Jewels</h2>
+            <p class="module-subtitle">Data exfiltration patterns, file transfer analysis, cloud forensics, and Linux disk forensics</p>
+          </div>
+        </div>
+        <div class="prompt-card">
+          <div class="prompt-actions">
+            <button class="btn-copy" onclick="copyPrompt('prompt-3')">📋 Copy Prompt</button>
+          </div>
+          <div class="prompt-content" id="prompt-3">
+            <p><strong>Create a comprehensive video tutorial teaching Module 3: Data Loss / Exfiltration — Protecting the Crown Jewels from the SOC Analyst I course.</strong></p>
+            
+            <p><strong>Learning Objectives:</strong> By the end of this tutorial, students should be able to detect data exfiltration patterns, analyze file transfer protocols in PCAP files, investigate cloud data movement using AWS logs, and perform Linux disk and directory forensics.</p>
+            
+            <p><strong>Topics to Cover:</strong></p>
+            <ol>
+              <li><strong>Data Exfiltration Patterns:</strong> Explain common exfiltration techniques including DNS tunneling, cloud storage abuse, and large file transfers. Show how to detect large file transfers in VPC Flow Logs. Demonstrate identifying unusual data transfer patterns and volumes that indicate potential exfiltration.</li>
+              <li><strong>File Transfer Protocol Analysis:</strong> Teach how to analyze FTP, SFTP, and HTTP POST traffic in PCAP files. Show how to identify encrypted data exfiltration in network traffic. Demonstrate using Wireshark filters to detect suspicious file transfers and data movement patterns.</li>
+              <li><strong>Cloud Data Movement Forensics:</strong> Explain how to analyze AWS S3 Access Logs and CloudTrail GetObject/PutObject events. Show how to investigate S3 exfiltration detection patterns. Demonstrate identifying unauthorized data access, unusual data movement, and suspicious cloud storage activity.</li>
+              <li><strong>Linux Disk / Directory Forensics:</strong> Introduce SleuthKit/Autopsy for disk forensics. Teach key Linux forensic commands for analyzing file systems, deleted files, and directory structures. Show how to identify evidence of data exfiltration on Linux systems, including file timestamps, access patterns, and deleted file recovery.</li>
+            </ol>
+            
+            <p><strong>Hands-On Labs to Reference:</strong></p>
+            <ul>
+              <li>Lab 3.1: Data Exfiltration Patterns and Detection - Detecting Large File Transfers in VPC Flow Logs</li>
+              <li>Lab 3.2: File Transfer Protocol Analysis - Analyzing Network Traffic for Encrypted Data Exfil</li>
+              <li>Lab 3.3: Cloud Data Movement Forensics - Investigating S3 Exfil Detection Patterns</li>
+            </ul>
+            
+            <p><strong>Teaching Style:</strong> Use visual demonstrations of network traffic analysis, step-by-step log analysis walkthroughs, real-world exfiltration scenarios, and practical exercises. Include diagrams showing data exfiltration patterns, network traffic flows, and cloud storage access patterns. Make it engaging and practical for visual learners.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 4: DDoS Attack -->
+      <section class="prompt-section">
+        <div class="prompt-header">
+          <span class="module-icon">⚡</span>
+          <div>
+            <h2>Module 4: DDoS Attack — Availability and Resilience</h2>
+            <p class="module-subtitle">DDoS detection, botnet analysis, mitigation strategies, and cloud defenses</p>
+          </div>
+        </div>
+        <div class="prompt-card">
+          <div class="prompt-actions">
+            <button class="btn-copy" onclick="copyPrompt('prompt-4')">📋 Copy Prompt</button>
+          </div>
+          <div class="prompt-content" id="prompt-4">
+            <p><strong>Create a comprehensive video tutorial teaching Module 4: DDoS Attack — Availability and Resilience from the SOC Analyst I course.</strong></p>
+            
+            <p><strong>Learning Objectives:</strong> By the end of this tutorial, students should be able to identify different DDoS attack types and signatures, create rate-based detection logic, analyze network forensics for DDoS attacks, and implement cloud mitigation strategies.</p>
+            
+            <p><strong>Topics to Cover:</strong></p>
+            <ol>
+              <li><strong>DDoS Attack Types & Signatures:</strong> Explain Layer 3/4 attacks (SYN Flood, UDP Flood) versus Layer 7 attacks (HTTP Flood). Show how to identify botnet traffic patterns in NetFlow data. Demonstrate the characteristics of different DDoS attack types and how they manifest in network traffic.</li>
+              <li><strong>Rate-Based Detection Logic:</strong> Teach threshold setting and alert tuning workflows. Show how to create simple rate-limit alerts in a SIEM-like environment. Explain how to balance false positives with detection sensitivity. Demonstrate creating detection rules for DDoS patterns.</li>
+              <li><strong>Network Forensics for DDoS:</strong> Show how to analyze high-volume PCAP files for DDoS attacks. Demonstrate identifying source IPs and attack patterns. Explain how to trace a DDoS attack back to its originating network. Walk through analyzing network traffic to identify attack signatures and patterns.</li>
+              <li><strong>Cloud Mitigation Strategies:</strong> Explain AWS Shield, CloudFront, and WAF configuration basics. Show how to implement DDoS protection in cloud environments. Demonstrate creating a step-by-step mitigation plan and workflow for responding to DDoS attacks.</li>
+            </ol>
+            
+            <p><strong>Hands-On Labs to Reference:</strong></p>
+            <ul>
+              <li>Lab 4.1: DDoS Detection - Identifying Botnet Traffic Patterns in NetFlow Data</li>
+              <li>Lab 4.2: Rate-Based Detection - Creating a Simple Rate-Limit Alert</li>
+            </ul>
+            
+            <p><strong>Teaching Style:</strong> Use visual demonstrations of network traffic patterns, step-by-step detection rule creation, real-world DDoS scenarios, and practical exercises. Include diagrams showing DDoS attack types, network traffic flows, and mitigation architectures. Make it engaging and practical for visual learners.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 5: Malware Attack -->
+      <section class="prompt-section">
+        <div class="prompt-header">
+          <span class="module-icon">🦠</span>
+          <div>
+            <h2>Module 5: Malware Attack — The Hostile Takeover</h2>
+            <p class="module-subtitle">Static/dynamic analysis, memory forensics, reverse engineering, and malware triage</p>
+          </div>
+        </div>
+        <div class="prompt-card">
+          <div class="prompt-actions">
+            <button class="btn-copy" onclick="copyPrompt('prompt-5')">📋 Copy Prompt</button>
+          </div>
+          <div class="prompt-content" id="prompt-5">
+            <p><strong>Create a comprehensive video tutorial teaching Module 5: Malware Attack — The Hostile Takeover from the SOC Analyst I course.</strong></p>
+            
+            <p><strong>Learning Objectives:</strong> By the end of this tutorial, students should be able to perform malware triage, conduct static and dynamic analysis, use memory forensics to identify malicious processes, and understand reverse engineering basics.</p>
+            
+            <p><strong>Topics to Cover:</strong></p>
+            <ol>
+              <li><strong>Malware Triage Workflow:</strong> Explain the malware triage checklist and sandbox analysis workflow. Show how to perform static analysis including extracting strings, calculating hashes, and analyzing file metadata. Demonstrate initial malware assessment techniques and when to escalate for deeper analysis.</li>
+              <li><strong>Dynamic Analysis (Safe Environment):</strong> Introduce sandboxing and behavioral analysis concepts. Show how to observe file system changes, registry modifications, and network activity in a controlled environment. Walk through a dynamic analysis workflow demonstrating how malware behaves when executed.</li>
+              <li><strong>Memory Forensics:</strong> Introduce the Volatility Framework and key commands (pslist, connscan, netscan). Show how to identify malicious processes and network connections in a memory dump. Demonstrate analyzing memory dumps to find evidence of malware execution, including process injection, network connections, and file system artifacts.</li>
+              <li><strong>Reverse Engineering Basics:</strong> Introduce disassemblers like Ghidra and IDA Free. Show how to identify malware families and common patterns. Explain basic reverse engineering concepts and how they apply to malware analysis. Demonstrate creating a comprehensive malware triage summary report.</li>
+            </ol>
+            
+            <p><strong>Hands-On Labs to Reference:</strong></p>
+            <ul>
+              <li>Lab 5.1: Static Analysis - Strings, Hashes, File Metadata</li>
+              <li>Lab 5.2: Dynamic Analysis - Observing File System/Registry Changes</li>
+              <li>Lab 5.3: Memory Forensics - Identifying Malicious Processes and Network Connections</li>
+            </ul>
+            
+            <p><strong>Teaching Style:</strong> Use visual demonstrations of analysis tools, step-by-step analysis walkthroughs, real-world malware samples (in safe environments), and practical exercises. Include diagrams showing malware lifecycle, analysis workflows, and memory structures. Make it engaging and practical for visual learners. Emphasize safety and proper containment procedures.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 6: Detection Engineering -->
+      <section class="prompt-section">
+        <div class="prompt-header">
+          <span class="module-icon">🛡️</span>
+          <div>
+            <h2>Module 6: Detection Engineering — Building the Defenses</h2>
+            <p class="module-subtitle">Suricata rules, YARA rules, Sigma rules, and SIEM integration</p>
+          </div>
+        </div>
+        <div class="prompt-card">
+          <div class="prompt-actions">
+            <button class="btn-copy" onclick="copyPrompt('prompt-6')">📋 Copy Prompt</button>
+          </div>
+          <div class="prompt-content" id="prompt-6">
+            <p><strong>Create a comprehensive video tutorial teaching Module 6: Detection Engineering — Building the Defenses from the SOC Analyst I course.</strong></p>
+            
+            <p><strong>Learning Objectives:</strong> By the end of this tutorial, students should be able to understand the detection lifecycle, write Suricata rules for network detection, create YARA rules for malware detection, and develop Sigma rules for SIEM integration.</p>
+            
+            <p><strong>Topics to Cover:</strong></p>
+            <ol>
+              <li><strong>Introduction to Detection Engineering:</strong> Explain the Detection Lifecycle: Identify, Develop, Test, Deploy, and Tune. Show how detection engineering fits into SOC operations. Demonstrate the importance of creating effective detection rules to catch threats early.</li>
+              <li><strong>Suricata Rule Creation:</strong> Teach Suricata rule syntax, including common keywords (content, flow, sid). Show how to write a basic Suricata rule (e.g., detecting a specific HTTP header). Demonstrate testing and tuning a Suricata rule against synthetic traffic. Explain how to reduce false positives and optimize rule performance.</li>
+              <li><strong>YARA Rule Creation:</strong> Explain YARA rule syntax, metadata, and string matching. Show how to write a YARA rule to detect a specific malware sample. Demonstrate using YARA for file-based detection and how to test rules against known samples. Explain condition logic and how to create effective malware signatures.</li>
+              <li><strong>Sigma Rule Creation:</strong> Introduce Sigma as a generic SIEM rule format. Show how to convert Sigma rules to SIEM queries. Demonstrate creating detection rules that can be used across different SIEM platforms. Explain how Sigma rules enable detection-as-code practices.</li>
+            </ol>
+            
+            <p><strong>Hands-On Labs to Reference:</strong></p>
+            <ul>
+              <li>Lab 6.1: Writing a Basic Suricata Rule - Detecting a Specific HTTP Header</li>
+              <li>Lab 6.2: Testing and Tuning a Suricata Rule against Synthetic Traffic</li>
+              <li>Lab 6.3: Writing a YARA Rule to Detect a Specific Malware Sample</li>
+            </ul>
+            
+            <p><strong>Teaching Style:</strong> Use visual demonstrations of rule syntax, step-by-step rule writing walkthroughs, real-world detection scenarios, and practical exercises. Include diagrams showing rule structures, detection logic flows, and SIEM integration patterns. Make it engaging and practical for visual learners. Show code examples and explain each component clearly.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 7: Live Attack & Defense -->
+      <section class="prompt-section">
+        <div class="prompt-header">
+          <span class="module-icon">🎯</span>
+          <div>
+            <h2>Module 7: Live Attack & Defense — The Capstone Simulation</h2>
+            <p class="module-subtitle">Multi-stage attack simulation, containment, eradication, and incident reporting</p>
+          </div>
+        </div>
+        <div class="prompt-card">
+          <div class="prompt-actions">
+            <button class="btn-copy" onclick="copyPrompt('prompt-7')">📋 Copy Prompt</button>
+          </div>
+          <div class="prompt-content" id="prompt-7">
+            <p><strong>Create a comprehensive video tutorial teaching Module 7: Live Attack & Defense — The Capstone Simulation from the SOC Analyst I course.</strong></p>
+            
+            <p><strong>Learning Objectives:</strong> By the end of this tutorial, students should be able to respond to multi-stage attacks, perform live triage and containment, build comprehensive timelines, and create full incident reports following NIST 800-61.</p>
+            
+            <p><strong>Topics to Cover:</strong></p>
+            <ol>
+              <li><strong>Multi-Stage Attack Simulation:</strong> Explain attack chain diagrams and MITRE ATT&CK mapping. Show how to identify different stages of an attack: initial access, execution, persistence, privilege escalation, defense evasion, credential access, discovery, lateral movement, collection, exfiltration, and command and control. Walk through a full incident response on a simulated multi-stage attack.</li>
+              <li><strong>Live Triage and Containment:</strong> Teach containment checklists and communication workflows. Show how to perform live containment and eradication steps. Demonstrate prioritizing incidents, coordinating response efforts, and making rapid decisions under pressure. Explain when to contain versus when to continue monitoring.</li>
+              <li><strong>Timeline Building and Reporting:</strong> Show how to create comprehensive timelines from multiple log sources. Teach executive summary writing techniques. Demonstrate the "10-Minute Incident Summary Challenge" for rapid reporting. Explain how to synthesize findings from multiple sources into a coherent timeline.</li>
+              <li><strong>Full Incident Report Creation:</strong> Review NIST 800-61 steps in detail. Show how to create a complete incident report with timeline, findings, containment actions, and recommendations. Walk through creating the ultimate portfolio piece: a full incident report documenting a multi-stage attack from detection to resolution.</li>
+            </ol>
+            
+            <p><strong>Hands-On Labs to Reference:</strong></p>
+            <ul>
+              <li>Capstone Lab: Full Incident Response on a Simulated Multi-Stage Attack</li>
+              <li>Lab 7.1: Performing Live Containment and Eradication Steps</li>
+              <li>Project: 10-Minute Incident Summary Challenge (Rapid Reporting)</li>
+            </ul>
+            
+            <p><strong>Teaching Style:</strong> Use visual demonstrations of attack chains, step-by-step response walkthroughs, real-world incident scenarios, and practical exercises. Include diagrams showing MITRE ATT&CK frameworks, incident response workflows, and timeline structures. Make it engaging and practical for visual learners. Simulate the pressure and decision-making of real SOC environments.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 8: Interview Prep -->
+      <section class="prompt-section">
+        <div class="prompt-header">
+          <span class="module-icon">💼</span>
+          <div>
+            <h2>Module 8: SOC Interview Simulation — Career Readiness</h2>
+            <p class="module-subtitle">Technical mock interviews, behavioral prep, resume optimization, and career roadmap</p>
+          </div>
+        </div>
+        <div class="prompt-card">
+          <div class="prompt-actions">
+            <button class="btn-copy" onclick="copyPrompt('prompt-8')">📋 Copy Prompt</button>
+          </div>
+          <div class="prompt-content" id="prompt-8">
+            <p><strong>Create a comprehensive video tutorial teaching Module 8: SOC Interview Simulation — Career Readiness from the SOC Analyst I course.</strong></p>
+            
+            <p><strong>Learning Objectives:</strong> By the end of this tutorial, students should be able to confidently answer technical SOC interview questions, use the STAR method for behavioral questions, optimize their resume and LinkedIn profile, and create a personalized career action plan.</p>
+            
+            <p><strong>Topics to Cover:</strong></p>
+            <ol>
+              <li><strong>Technical Mock Interview:</strong> Walk through a 45-minute mock interview script with 30 common SOC Tier 1 technical questions. Cover topics like: incident response procedures, log analysis, network forensics, malware analysis, detection engineering, and cloud security. Demonstrate whiteboard-style IR scenario walkthroughs. Show how to structure answers clearly and confidently.</li>
+              <li><strong>Behavioral Interview Prep:</strong> Teach the STAR method (Situation, Task, Action, Result) for answering behavioral questions. Cover common behavioral questions like: "Tell me about a time you handled a difficult situation," "How do you work under pressure," and "Describe a time you had to learn something new quickly." Show how to prepare compelling stories from lab experiences and projects.</li>
+              <li><strong>Resume and LinkedIn Optimization:</strong> Show how to highlight SOC-relevant skills and experiences. Demonstrate how to present portfolio projects effectively. Explain how to use keywords that ATS systems look for. Show how to optimize LinkedIn profiles for SOC analyst roles, including recommendations, endorsements, and content sharing.</li>
+              <li><strong>Career Roadmap:</strong> Review the 90-Day Study Plan and 6-Month SOC Career Roadmap (Tier 1 → Tier 2). Explain progression paths and required skills for advancement. Show how to create a personalized career action plan. Discuss certifications, continued learning, and networking strategies.</li>
+              <li><strong>Final Assessment:</strong> Review all portfolio projects and provide guidance on presenting them. Conduct a final course quiz covering key concepts. Help students create their personalized career action plan with specific, actionable steps.</li>
+            </ol>
+            
+            <p><strong>Hands-On Labs to Reference:</strong></p>
+            <ul>
+              <li>Lab 8.1: Whiteboard-Style IR Scenario Walkthrough</li>
+              <li>Project: Resume and LinkedIn Optimization Checklist</li>
+              <li>Assessment: Final Course Quiz and Self-Assessment</li>
+            </ul>
+            
+            <p><strong>Teaching Style:</strong> Use role-playing interview scenarios, step-by-step answer structuring, real-world examples of good and bad answers, and practical exercises. Include templates for resume sections, LinkedIn profiles, and career action plans. Make it engaging and practical. Build confidence through practice and preparation.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Usage Instructions -->
+      <section class="instructions-section">
+        <h2>📖 How to Use These Prompts</h2>
+        <div class="instructions-card">
+          <ol>
+            <li><strong>Select a Module:</strong> Choose the module you want to learn about or review.</li>
+            <li><strong>Copy the Prompt:</strong> Click the "Copy Prompt" button for your chosen module.</li>
+            <li><strong>Paste into Notebook LLM:</strong> Open your notebook LLM application and paste the prompt.</li>
+            <li><strong>Generate Tutorial:</strong> The LLM will create a comprehensive video tutorial script covering all topics in that module.</li>
+            <li><strong>Follow Along:</strong> Use the generated tutorial to create your video or study the material in depth.</li>
+          </ol>
+          <p class="note"><strong>💡 Tip:</strong> You can modify these prompts to focus on specific topics within a module, or combine multiple modules for a longer tutorial series.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 SOC Analyst I — From Cradle to Grave. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function copyPrompt(promptId) {
+      const promptElement = document.getElementById(promptId);
+      const text = promptElement.innerText;
+      
+      navigator.clipboard.writeText(text).then(() => {
+        // Show feedback
+        const button = event.target;
+        const originalText = button.textContent;
+        button.textContent = '✅ Copied!';
+        button.style.backgroundColor = '#4caf50';
+        
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.style.backgroundColor = '';
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy:', err);
+        alert('Failed to copy. Please select and copy manually.');
+      });
+    }
+  </script>
+
+  <style>
+    .notebook-page {
+      padding: 2rem 0;
+      min-height: calc(100vh - 200px);
+    }
+
+    .prompt-section {
+      margin-bottom: 3rem;
+    }
+
+    .prompt-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border-color, #333);
+    }
+
+    .module-icon {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+    }
+
+    .module-subtitle {
+      color: var(--text-secondary, #aaa);
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .prompt-card {
+      background: var(--card-bg, #1a1a1a);
+      border: 1px solid var(--border-color, #333);
+      border-radius: 8px;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .prompt-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 1rem;
+    }
+
+    .btn-copy {
+      background: var(--primary-color, #4a9eff);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .btn-copy:hover {
+      background: var(--primary-hover, #3a8eef);
+    }
+
+    .prompt-content {
+      line-height: 1.8;
+      color: var(--text-primary, #e0e0e0);
+      white-space: pre-wrap;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    .prompt-content strong {
+      color: var(--text-primary, #fff);
+      font-weight: 600;
+    }
+
+    .prompt-content ol,
+    .prompt-content ul {
+      margin: 1rem 0;
+      padding-left: 2rem;
+    }
+
+    .prompt-content li {
+      margin: 0.5rem 0;
+    }
+
+    .instructions-section {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 2px solid var(--border-color, #333);
+    }
+
+    .instructions-card {
+      background: var(--card-bg, #1a1a1a);
+      border: 1px solid var(--border-color, #333);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-top: 1rem;
+    }
+
+    .instructions-card ol {
+      line-height: 2;
+      margin-bottom: 1.5rem;
+    }
+
+    .instructions-card li {
+      margin: 0.75rem 0;
+    }
+
+    .note {
+      background: rgba(74, 158, 255, 0.1);
+      border-left: 4px solid var(--primary-color, #4a9eff);
+      padding: 1rem;
+      border-radius: 4px;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .prompt-header {
+        flex-direction: column;
+      }
+
+      .module-icon {
+        font-size: 2rem;
+      }
+
+      .prompt-card {
+        padding: 1rem;
+      }
+
+      .prompt-content {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</body>
+</html>
+

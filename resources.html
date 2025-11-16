@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Resources - SOC Analyst I</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+  // Load saved theme immediately to prevent flash
+  (function() {
+    try {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.classList.add(savedTheme);
+      if (document.body) {
+        document.body.classList.add(savedTheme);
+      } else {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add(savedTheme);
+        });
+      }
+    } catch(e) {
+      // Fallback to dark if localStorage fails
+      document.documentElement.classList.add('dark');
+    }
+  })();
+</script>
+<script src="app.js" defer></script>
+</head>
+<body class="dark">
+  <nav class="site-nav">
+    <div class="logo">SOC Analyst I</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="modules.html">Modules</a></li>
+      <li><a href="lab.html">Labs</a></li>
+      <li><a href="dashboard.html">Progress</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="resources.html" class="active">Resources</a></li>
+      <li><a href="prompts.html">Prompts</a></li>
+      <li><a href="notebook.html">Notebook</a></li>
+      <li>
+        <button class="theme-toggle" aria-label="Toggle theme">🌓</button>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="resources-page">
+    <header class="page-header">
+      <h1>Resources & Documentation</h1>
+      <p>Cheat sheets, templates, study materials, and reference guides for your SOC journey</p>
+    </header>
+
+    <div class="container">
+      <!-- Templates Section -->
+      <section class="resources-section">
+        <h2 class="section-title">📋 Professional Templates</h2>
+        <p class="section-subtitle">Industry-standard templates aligned with NIST 800-61 framework</p>
+        <div class="resources-grid">
+          <div class="resource-card">
+            <div class="resource-icon">📄</div>
+            <h3>Incident Report Template</h3>
+            <p>Complete NIST 800-61 aligned template for documenting security incidents from detection to resolution.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Template</span>
+              <span class="resource-format">Markdown</span>
+            </div>
+            <a href="../templates/incident-report-template.md" class="btn-secondary btn-sm" download>Download</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">📧</div>
+            <h3>Phishing Response Template</h3>
+            <p>Structured template for phishing incident triage, analysis, and response documentation.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Template</span>
+              <span class="resource-format">Markdown</span>
+            </div>
+            <a href="../templates/phishing-response-template.md" class="btn-secondary btn-sm" download>Download</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">🦠</div>
+            <h3>Malware Analysis Template</h3>
+            <p>Comprehensive template for documenting malware analysis including static, dynamic, and memory forensics findings.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Template</span>
+              <span class="resource-format">Markdown</span>
+            </div>
+            <a href="../templates/malware-analysis-template.md" class="btn-secondary btn-sm" download>Download</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">☁️</div>
+            <h3>Cloud Incident Triage Template</h3>
+            <p>Template for investigating cloud security incidents using AWS CloudTrail, GuardDuty, and VPC Flow Logs.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Template</span>
+              <span class="resource-format">Markdown</span>
+            </div>
+            <a href="../templates/cloud-incident-triage-template.md" class="btn-secondary btn-sm" download>Download</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">🛡️</div>
+            <h3>Detection Rule Development Template</h3>
+            <p>Template for documenting detection rules (Suricata, YARA, Sigma) with testing and tuning notes.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Template</span>
+              <span class="resource-format">Markdown</span>
+            </div>
+            <a href="../templates/detection-rule-development-template.md" class="btn-secondary btn-sm" download>Download</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cheat Sheets Section -->
+      <section class="resources-section">
+        <h2 class="section-title">📚 Cheat Sheets & Quick References</h2>
+        <p class="section-subtitle">Quick reference guides for common SOC tasks and tools</p>
+        <div class="resources-grid">
+          <div class="resource-card">
+            <div class="resource-icon">📧</div>
+            <h3>Email Header Analysis</h3>
+            <p>Quick reference for key email header fields, SPF/DKIM/DMARC interpretation, and spoofing detection.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Cheat Sheet</span>
+              <span class="resource-topic">Phishing</span>
+            </div>
+            <ul class="resource-topics">
+              <li>Key header fields (Received, Return-Path, X-Originating-IP)</li>
+              <li>SPF/DKIM/DMARC results</li>
+              <li>Common spoofing indicators</li>
+            </ul>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">🔍</div>
+            <h3>OSINT Tools Quick Reference</h3>
+            <p>Quick guide to using VirusTotal, AbuseIPDB, Whois, and Shodan for threat intelligence enrichment.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Cheat Sheet</span>
+              <span class="resource-topic">OSINT</span>
+            </div>
+            <a href="cheatsheets/osint-tools.md" class="btn-secondary btn-sm" target="_blank">View</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">🌐</div>
+            <h3>Wireshark Filters</h3>
+            <p>Common Wireshark display filters for PCAP analysis, including filters for C2 traffic, data exfiltration, and suspicious activity.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Cheat Sheet</span>
+              <span class="resource-topic">Network Analysis</span>
+            </div>
+            <a href="cheatsheets/wireshark-filters.md" class="btn-secondary btn-sm" target="_blank">View</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">🐧</div>
+            <h3>Linux Log Analysis Commands</h3>
+            <p>Essential Linux commands for analyzing auth.log, journalctl, and system logs for security incidents.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Cheat Sheet</span>
+              <span class="resource-topic">Host Forensics</span>
+            </div>
+            <a href="cheatsheets/linux-log-analysis.md" class="btn-secondary btn-sm" target="_blank">View</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">☁️</div>
+            <h3>AWS Security Logs Reference</h3>
+            <p>Quick reference for analyzing CloudTrail, GuardDuty, VPC Flow Logs, and S3 access logs.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Cheat Sheet</span>
+              <span class="resource-topic">Cloud Security</span>
+            </div>
+            <a href="cheatsheets/aws-security-logs.md" class="btn-secondary btn-sm" target="_blank">View</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">🛡️</div>
+            <h3>Suricata Rule Syntax</h3>
+            <p>Quick reference for Suricata IDS/IPS rule syntax, keywords, and common rule patterns.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Cheat Sheet</span>
+              <span class="resource-topic">Detection Engineering</span>
+            </div>
+            <a href="cheatsheets/suricata-rules.md" class="btn-secondary btn-sm" target="_blank">View</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">🔬</div>
+            <h3>YARA Rule Syntax</h3>
+            <p>Quick reference for writing YARA rules for malware detection, including string matching and conditions.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Cheat Sheet</span>
+              <span class="resource-topic">Detection Engineering</span>
+            </div>
+            <a href="cheatsheets/yara-rules.md" class="btn-secondary btn-sm" target="_blank">View</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">💾</div>
+            <h3>Volatility Framework Commands</h3>
+            <p>Essential Volatility commands for memory forensics, including process listing, network connections, and malware detection.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Cheat Sheet</span>
+              <span class="resource-topic">Memory Forensics</span>
+            </div>
+            <a href="cheatsheets/volatility-commands.md" class="btn-secondary btn-sm" target="_blank">View</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Study Materials Section -->
+      <section class="resources-section">
+        <h2 class="section-title">📖 Study Materials & Roadmaps</h2>
+        <p class="section-subtitle">Schedules, roadmaps, and study guides to plan your learning journey</p>
+        <div class="resources-grid">
+          <div class="resource-card">
+            <div class="resource-icon">🗓️</div>
+            <h3>90-Day Study Schedule</h3>
+            <p>Optimized study schedule for working professionals with 10-hour shifts. Complete all 8 modules in 12 weeks.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Study Guide</span>
+              <span class="resource-format">Markdown</span>
+            </div>
+            <a href="../docs/roadmaps/90-day-study-schedule.md" class="btn-secondary btn-sm" target="_blank">View schedule</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">🚀</div>
+            <h3>6-Month Career Roadmap</h3>
+            <p>Progression plan from SOC Tier 1 → Tier 2 → Cloud Security Analyst with skills, certifications, and portfolio milestones.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Career Guide</span>
+              <span class="resource-format">Markdown</span>
+            </div>
+            <a href="../docs/roadmaps/6-month-career-roadmap.md" class="btn-secondary btn-sm" target="_blank">View roadmap</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">⚙️</div>
+            <h3>Lab Environment Setup</h3>
+            <p>Complete guide for setting up your lab environment with all required tools and configurations.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Setup Guide</span>
+              <span class="resource-format">Markdown</span>
+            </div>
+            <a href="../docs/setup-instructions.md" class="btn-secondary btn-sm" target="_blank">View guide</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">📚</div>
+            <h3>Full Course Content</h3>
+            <p>Complete course content including all 8 modules, daily lesson plans, and learning objectives.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Course Material</span>
+              <span class="resource-format">Markdown</span>
+            </div>
+            <a href="../docs/course-content.md" class="btn-secondary btn-sm" target="_blank">View content</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Synthetic Data Section -->
+      <section class="resources-section">
+        <h2 class="section-title">🧪 Synthetic Data Samples</h2>
+        <p class="section-subtitle">Practice with realistic data samples for hands-on learning</p>
+        <div class="resources-grid">
+          <div class="resource-card">
+            <div class="resource-icon">📧</div>
+            <h3>Email Header Analysis Cheat Sheet</h3>
+            <p>Quick reference for key email header fields, SPF/DKIM/DMARC interpretation, and spoofing detection.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Cheat Sheet</span>
+              <span class="resource-topic">Phishing</span>
+            </div>
+            <a href="cheatsheets/email-header-analysis.md" class="btn-secondary btn-sm" target="_blank">View</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">📧</div>
+            <h3>Sample Email Headers</h3>
+            <p>Realistic email header examples including spoofed emails for practice analysis.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Data Sample</span>
+              <span class="resource-format">Text</span>
+            </div>
+            <a href="../data/synthetic/sample-email-header.txt" class="btn-secondary btn-sm" download>Download</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">🌐</div>
+            <h3>PCAP Analysis Examples</h3>
+            <p>Sample PCAP analysis output showing C2 traffic, data exfiltration patterns, and suspicious network activity.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Data Sample</span>
+              <span class="resource-format">Text</span>
+            </div>
+            <a href="../data/synthetic/sample-pcap-analysis.txt" class="btn-secondary btn-sm" download>Download</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">🐧</div>
+            <h3>Linux Auth Log Samples</h3>
+            <p>Sample Linux auth.log entries showing failed login attempts, privilege escalation, and suspicious user activity.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Data Sample</span>
+              <span class="resource-format">Text</span>
+            </div>
+            <a href="../data/synthetic/sample-linux-auth-log.txt" class="btn-secondary btn-sm" download>Download</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">☁️</div>
+            <h3>CloudTrail Log Samples</h3>
+            <p>Sample AWS CloudTrail logs showing IAM abuse, unauthorized access, and suspicious API calls.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Data Sample</span>
+              <span class="resource-format">JSON</span>
+            </div>
+            <a href="../data/synthetic/sample-cloudtrail-log.json" class="btn-secondary btn-sm" download>Download</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">🛡️</div>
+            <h3>Suricata Alert Examples</h3>
+            <p>Sample Suricata IDS/IPS alerts in JSON format showing various attack types and detection patterns.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Data Sample</span>
+              <span class="resource-format">JSON</span>
+            </div>
+            <a href="../data/synthetic/suricata-alert-example.json" class="btn-secondary btn-sm" download>Download</a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">🔬</div>
+            <h3>YARA Detection Output</h3>
+            <p>Sample YARA rule detection output showing malware matches and rule evaluation results.</p>
+            <div class="resource-meta">
+              <span class="resource-type">Data Sample</span>
+              <span class="resource-format">Text</span>
+            </div>
+            <a href="../data/synthetic/yara-detection-output.txt" class="btn-secondary btn-sm" download>Download</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tools Section -->
+      <section class="resources-section">
+        <h2 class="section-title">🛠️ Recommended Tools</h2>
+        <p class="section-subtitle">All open-source tools used throughout the course</p>
+        <div class="tools-list">
+          <div class="tool-item">
+            <h4>Wireshark</h4>
+            <p>Network protocol analyzer for PCAP analysis</p>
+            <a href="https://www.wireshark.org/" target="_blank" class="btn-secondary btn-sm">Visit website</a>
+          </div>
+          <div class="tool-item">
+            <h4>Volatility Framework</h4>
+            <p>Memory forensics framework for malware analysis</p>
+            <a href="https://www.volatilityfoundation.org/" target="_blank" class="btn-secondary btn-sm">Visit website</a>
+          </div>
+          <div class="tool-item">
+            <h4>Suricata</h4>
+            <p>Open-source IDS/IPS for network security monitoring</p>
+            <a href="https://suricata.io/" target="_blank" class="btn-secondary btn-sm">Visit website</a>
+          </div>
+          <div class="tool-item">
+            <h4>YARA</h4>
+            <p>Pattern matching tool for malware detection</p>
+            <a href="https://yara.readthedocs.io/" target="_blank" class="btn-secondary btn-sm">Visit website</a>
+          </div>
+          <div class="tool-item">
+            <h4>VirusTotal</h4>
+            <p>Online malware scanning and threat intelligence</p>
+            <a href="https://www.virustotal.com/" target="_blank" class="btn-secondary btn-sm">Visit website</a>
+          </div>
+          <div class="tool-item">
+            <h4>AbuseIPDB</h4>
+            <p>IP reputation and threat intelligence database</p>
+            <a href="https://www.abuseipdb.com/" target="_blank" class="btn-secondary btn-sm">Visit website</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 SOC Analyst I — From Cradle to Grave. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+

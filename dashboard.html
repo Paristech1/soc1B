@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Progress Dashboard - SOC Analyst I</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+  // Load saved theme immediately to prevent flash
+  (function() {
+    try {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.classList.add(savedTheme);
+      if (document.body) {
+        document.body.classList.add(savedTheme);
+      } else {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add(savedTheme);
+        });
+      }
+    } catch(e) {
+      // Fallback to dark if localStorage fails
+      document.documentElement.classList.add('dark');
+    }
+  })();
+</script>
+<script src="app.js" defer></script>
+</head>
+<body class="dark">
+  <nav class="site-nav">
+    <div class="logo">SOC Analyst I</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="modules.html">Modules</a></li>
+      <li><a href="lab.html">Labs</a></li>
+      <li><a href="dashboard.html" class="active">Progress</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="prompts.html">Prompts</a></li>
+      <li><a href="notebook.html">Notebook</a></li>
+      <li>
+        <button class="theme-toggle" aria-label="Toggle theme">🌓</button>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="dashboard-page">
+    <header class="page-header">
+      <h1>Progress Dashboard</h1>
+      <p>Track your learning journey and portfolio building progress</p>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">📚</div>
+        <div class="stat-content">
+          <h3>Modules Completed</h3>
+          <p class="stat-number">1 <span class="stat-total">/ 8</span></p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 12.5%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">🧪</div>
+        <div class="stat-content">
+          <h3>Labs Completed</h3>
+          <p class="stat-number">2 <span class="stat-total">/ 20+</span></p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 10%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">📁</div>
+        <div class="stat-content">
+          <h3>Portfolio Projects</h3>
+          <p class="stat-number">1 <span class="stat-total">/ 8+</span></p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 12.5%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon">⏱️</div>
+        <div class="stat-content">
+          <h3>Study Time</h3>
+          <p class="stat-number">3 <span class="stat-total">hours</span></p>
+          <p class="stat-subtitle">This week</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-content">
+      <div class="dashboard-section">
+        <h2>Module Progress</h2>
+        <div class="progress-list">
+          <div class="progress-item in-progress">
+            <div class="progress-item-header">
+              <span class="progress-module-number">01</span>
+              <div class="progress-item-info">
+                <h4>Phishing Attack</h4>
+                <p>2 of 3 sessions completed</p>
+              </div>
+              <span class="progress-percentage">67%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 67%"></div>
+            </div>
+          </div>
+
+          <div class="progress-item locked">
+            <div class="progress-item-header">
+              <span class="progress-module-number">02</span>
+              <div class="progress-item-info">
+                <h4>Unauthorized Access</h4>
+                <p>Locked - Complete Module 1 to unlock</p>
+              </div>
+              <span class="progress-percentage">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="progress-item locked">
+            <div class="progress-item-header">
+              <span class="progress-module-number">03</span>
+              <div class="progress-item-info">
+                <h4>Data Exfiltration</h4>
+                <p>Locked</p>
+              </div>
+              <span class="progress-percentage">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="progress-item locked">
+            <div class="progress-item-header">
+              <span class="progress-module-number">04</span>
+              <div class="progress-item-info">
+                <h4>DDoS Attack</h4>
+                <p>Locked</p>
+              </div>
+              <span class="progress-percentage">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="progress-item locked">
+            <div class="progress-item-header">
+              <span class="progress-module-number">05</span>
+              <div class="progress-item-info">
+                <h4>Malware Attack</h4>
+                <p>Locked</p>
+              </div>
+              <span class="progress-percentage">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="progress-item locked">
+            <div class="progress-item-header">
+              <span class="progress-module-number">06</span>
+              <div class="progress-item-info">
+                <h4>Detection Engineering</h4>
+                <p>Locked</p>
+              </div>
+              <span class="progress-percentage">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="progress-item locked">
+            <div class="progress-item-header">
+              <span class="progress-module-number">07</span>
+              <div class="progress-item-info">
+                <h4>Live Attack & Defense</h4>
+                <p>Locked</p>
+              </div>
+              <span class="progress-percentage">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="progress-item locked">
+            <div class="progress-item-header">
+              <span class="progress-module-number">08</span>
+              <div class="progress-item-info">
+                <h4>Interview Prep</h4>
+                <p>Locked</p>
+              </div>
+              <span class="progress-percentage">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-section">
+        <h2>Recent Activity</h2>
+        <div class="activity-list">
+          <div class="activity-item">
+            <span class="activity-icon">✅</span>
+            <div class="activity-content">
+              <h4>Completed Lab 1.1: Email Header Analysis</h4>
+              <p class="activity-time">2 hours ago</p>
+            </div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-icon">📝</span>
+            <div class="activity-content">
+              <h4>Started Lab 1.2: OSINT Threat Enrichment</h4>
+              <p class="activity-time">1 day ago</p>
+            </div>
+          </div>
+          <div class="activity-item">
+            <span class="activity-icon">📁</span>
+            <div class="activity-content">
+              <h4>Created Portfolio Project: Phishing Triage Playbook</h4>
+              <p class="activity-time">3 days ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-section">
+        <h2>Portfolio Projects</h2>
+        <div class="portfolio-grid">
+          <div class="portfolio-card completed">
+            <h4>Phishing Triage Playbook</h4>
+            <p>Module 1 Portfolio Project</p>
+            <span class="portfolio-status completed">✅ Completed</span>
+          </div>
+          <div class="portfolio-card locked">
+            <h4>Unauthorized Access IR Report</h4>
+            <p>Module 2 Portfolio Project</p>
+            <span class="portfolio-status locked">🔒 Locked</span>
+          </div>
+          <div class="portfolio-card locked">
+            <h4>Data Exfil Detection Blueprint</h4>
+            <p>Module 3 Portfolio Project</p>
+            <span class="portfolio-status locked">🔒 Locked</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SOC Analyst I — From Cradle to Grave. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+

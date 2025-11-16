@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Lab Generation Prompts - SOC Analyst I</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+  // Load saved theme immediately to prevent flash
+  (function() {
+    try {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.classList.add(savedTheme);
+      if (document.body) {
+        document.body.classList.add(savedTheme);
+      } else {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add(savedTheme);
+        });
+      }
+    } catch(e) {
+      // Fallback to dark if localStorage fails
+      document.documentElement.classList.add('dark');
+    }
+  })();
+</script>
+<script src="app.js" defer></script>
+</head>
+<body class="dark">
+  <nav class="site-nav">
+    <div class="logo">SOC Analyst I</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="modules.html">Modules</a></li>
+      <li><a href="lab.html">Labs</a></li>
+      <li><a href="dashboard.html">Progress</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="prompts.html" class="active">Prompts</a></li>
+      <li>
+        <button class="theme-toggle" aria-label="Toggle theme">🌓</button>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="prompts-page">
+    <header class="page-header">
+      <h1>Lab Generation Prompts</h1>
+      <p>Copy and paste these prompts into Perplexity Labs to generate additional hands-on labs for each module section</p>
+    </header>
+
+    <div class="container">
+      <section class="prompts-intro">
+        <div class="intro-card">
+          <h2>How to Use These Prompts</h2>
+          <ol>
+            <li>Select a prompt below that matches the module section you want to expand</li>
+            <li>Click the "Copy Prompt" button to copy the entire prompt</li>
+            <li>Paste it into Perplexity Labs</li>
+            <li>Perplexity will generate a complete lab with step-by-step instructions, sample data, and deliverables</li>
+            <li>Review and customize the generated lab as needed</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Module 1 Prompts -->
+      <section class="prompts-section">
+        <h2 class="section-title">Module 1: Phishing Attack</h2>
+        
+        <div class="prompt-card">
+          <h3>1.1 Phishing Fundamentals and Email Header Analysis</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-1-1')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-1-1">
+Create a comprehensive hands-on lab for SOC Analyst I students on "Phishing Fundamentals and Email Header Analysis". 
+
+The lab should:
+- Be designed for beginners with basic Linux command-line knowledge
+- Use only open-source tools (no paid platforms)
+- Include step-by-step instructions that walk learners through each action
+- Provide synthetic email header data for analysis
+- Cover: extracting email headers from different email clients (Gmail, Outlook, Apple Mail), reading Received headers bottom-to-top, identifying key header fields (From, Return-Path, X-Originating-IP, Received-SPF), interpreting SPF/DKIM/DMARC results, and identifying spoofing indicators
+
+Deliverables should include:
+- A sample spoofed email header with clear indicators
+- Step-by-step analysis instructions
+- A checklist of spoofing indicators to identify
+- A one-page analysis document template
+- Knowledge check questions with answers
+
+Format the lab following instructional design best practices with clear learning objectives, prerequisites, real-world context, and progressive complexity.
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <h3>1.2 OSINT Threat Enrichment</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-1-2')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-1-2">
+Create a hands-on lab for "OSINT Threat Enrichment" for SOC Analyst I students.
+
+The lab should:
+- Be designed for beginners
+- Use open-source OSINT tools: VirusTotal, AbuseIPDB, Whois, and Shodan
+- Include step-by-step walkthroughs for each tool
+- Provide sample IOCs (IP addresses, domains, file hashes) extracted from a phishing email
+- Cover: checking IOCs on VirusTotal and interpreting detection ratios, querying AbuseIPDB for IP reputation, using Whois to check domain registration details, searching Shodan for exposed services, and compiling findings into a threat intelligence report
+
+Deliverables should include:
+- Sample IOCs from a phishing investigation
+- Tool-specific instructions with screenshots/descriptions
+- A threat enrichment report template
+- A comparison table showing results from all tools
+- Best practices for OSINT analysis
+
+Include real-world context explaining why OSINT enrichment is critical for SOC analysts.
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <h3>1.3 PCAP Analysis of Phishing Post-Compromise</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-1-3')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-1-3">
+Create a hands-on lab on "PCAP Analysis for Phishing Post-Compromise Investigation" for SOC Analyst I students.
+
+The lab should:
+- Use Wireshark (open-source) for PCAP analysis
+- Include a sample PCAP file with synthetic phishing compromise traffic
+- Cover: filtering HTTP traffic for malicious downloads, identifying C2 (command-and-control) connections, analyzing DNS queries for suspicious domains, detecting data exfiltration patterns, and creating a timeline of events
+
+Deliverables should include:
+- A sample PCAP file with embedded malicious activity
+- Wireshark filter cheat sheet for phishing investigations
+- Step-by-step analysis instructions
+- A timeline template for documenting findings
+- An incident ticket following NIST 800-61 framework
+
+The lab should demonstrate how email header analysis leads to network forensics when a user clicks a malicious link.
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 2 Prompts -->
+      <section class="prompts-section">
+        <h2 class="section-title">Module 2: Unauthorized Access</h2>
+        
+        <div class="prompt-card">
+          <h3>2.1 IAM Abuse and Privilege Escalation</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-2-1')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-2-1">
+Create a hands-on lab on "IAM Abuse and Privilege Escalation Detection" for SOC Analyst I students.
+
+The lab should:
+- Focus on AWS CloudTrail log analysis (open-source AWS CLI)
+- Include synthetic CloudTrail logs showing IAM abuse
+- Cover: identifying unauthorized IAM user creation, detecting privilege escalation attempts (AssumeRole abuse), analyzing policy changes, identifying suspicious API calls from external IPs, and creating an incident timeline
+
+Deliverables should include:
+- Sample CloudTrail logs with IAM abuse indicators
+- AWS CLI commands for log analysis
+- A workflow diagram for IAM investigation
+- An incident report template section for IAM abuse
+- Red flags checklist for IAM abuse detection
+
+Include both AWS cloud and on-premise IAM scenarios.
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <h3>2.2 Host Log Analysis (Linux/Windows)</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-2-2')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-2-2">
+Create a hands-on lab on "Host Log Analysis for Unauthorized Access Detection" for SOC Analyst I students.
+
+The lab should:
+- Cover both Linux (auth.log, journalctl) and Windows (Event Logs) log analysis
+- Use only command-line tools (grep, awk, PowerShell)
+- Include synthetic log samples with unauthorized access indicators
+- Cover: analyzing failed login attempts, identifying brute force attacks, detecting privilege escalation (sudo/su usage), analyzing user account changes, and creating a user activity timeline
+
+Deliverables should include:
+- Sample Linux auth.log with attack patterns
+- Sample Windows Security Event Log entries
+- Command-line cheat sheet for log analysis
+- A timeline template for user activity
+- A comparison table of Linux vs Windows log analysis
+
+The lab should demonstrate how host logs reveal unauthorized access attempts.
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <h3>2.3 Cloud IAM Investigation</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-2-3')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-2-3">
+Create a hands-on lab on "Cloud IAM Investigation Using AWS GuardDuty and CloudTrail" for SOC Analyst I students.
+
+The lab should:
+- Use AWS GuardDuty findings and CloudTrail logs
+- Include synthetic GuardDuty alerts for unauthorized access
+- Cover: analyzing GuardDuty findings (UnauthorizedAPICall, ReconEC2), correlating GuardDuty alerts with CloudTrail events, investigating IAM credential exfiltration, analyzing S3 bucket access patterns, and creating a comprehensive cloud incident report
+
+Deliverables should include:
+- Sample GuardDuty finding JSON
+- CloudTrail log analysis workflow
+- A correlation matrix for GuardDuty and CloudTrail
+- A cloud incident triage template
+- Best practices for cloud IAM security
+
+Focus on hybrid environments (on-premise + AWS cloud).
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 3 Prompts -->
+      <section class="prompts-section">
+        <h2 class="section-title">Module 3: Data Exfiltration</h2>
+        
+        <div class="prompt-card">
+          <h3>3.1 Data Exfiltration Pattern Detection</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-3-1')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-3-1">
+Create a hands-on lab on "Detecting Data Exfiltration Patterns in Network Traffic" for SOC Analyst I students.
+
+The lab should:
+- Use VPC Flow Logs and Wireshark for analysis
+- Include synthetic network logs showing data exfiltration
+- Cover: identifying large outbound transfers, detecting unusual data transfer patterns, analyzing file transfer protocols (FTP, SFTP, HTTP POST), identifying DNS tunneling, and creating a data loss assessment
+
+Deliverables should include:
+- Sample VPC Flow Logs with exfiltration patterns
+- Wireshark filters for data exfiltration detection
+- A data exfiltration detection workflow
+- A data loss assessment template
+- Common exfiltration technique comparison table
+
+Include both network-based and cloud-based (S3) exfiltration scenarios.
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <h3>3.2 File Transfer Protocol Analysis</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-3-2')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-3-2">
+Create a hands-on lab on "File Transfer Protocol Analysis for Data Exfiltration Detection" for SOC Analyst I students.
+
+The lab should:
+- Use Wireshark to analyze FTP, SFTP, and HTTP POST traffic
+- Include a sample PCAP with file transfer activity
+- Cover: analyzing FTP transfers (RETR, STOR commands), detecting SFTP file transfers, identifying HTTP POST data exfiltration, extracting file metadata from transfers, and documenting exfiltrated data
+
+Deliverables should include:
+- Sample PCAP with FTP/SFTP/HTTP transfers
+- Protocol-specific analysis instructions
+- A file transfer analysis template
+- A data exfiltration timeline
+- Best practices for monitoring file transfers
+
+Focus on detecting unauthorized file transfers in encrypted protocols.
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <h3>3.3 Linux Disk Forensics</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-3-3')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-3-3">
+Create a hands-on lab on "Linux Disk Forensics for Data Exfiltration Investigation" for SOC Analyst I students.
+
+The lab should:
+- Use open-source tools: SleuthKit/Autopsy or command-line tools
+- Include a sample disk image or file system dump
+- Cover: analyzing file system metadata, identifying recently modified files, detecting file deletion and recovery, analyzing file access timestamps, and creating a file activity timeline
+
+Deliverables should include:
+- Sample file system data
+- Command-line forensics cheat sheet
+- A file system analysis template
+- A data exfiltration investigation report
+- Best practices for disk forensics
+
+Include both live system analysis and disk image analysis scenarios.
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 4 Prompts -->
+      <section class="prompts-section">
+        <h2 class="section-title">Module 4: DDoS Attack</h2>
+        
+        <div class="prompt-card">
+          <h3>4.1 DDoS Detection and Analysis</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-4-1')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-4-1">
+Create a hands-on lab on "DDoS Attack Detection and Analysis" for SOC Analyst I students.
+
+The lab should:
+- Use NetFlow data and Wireshark for analysis
+- Include synthetic NetFlow data showing DDoS patterns
+- Cover: identifying SYN flood attacks, detecting UDP flood patterns, analyzing Layer 7 (HTTP) floods, identifying botnet traffic patterns, and creating a DDoS attack timeline
+
+Deliverables should include:
+- Sample NetFlow data with DDoS traffic
+- Wireshark filters for DDoS detection
+- A DDoS attack type comparison table
+- A DDoS detection workflow
+- A DDoS triage checklist
+
+Include both Layer 3/4 and Layer 7 DDoS attack scenarios.
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <h3>4.2 DDoS Mitigation Strategies</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-4-2')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-4-2">
+Create a hands-on lab on "DDoS Mitigation Strategies and Cloud Defense" for SOC Analyst I students.
+
+The lab should:
+- Focus on AWS Shield, CloudFront, and WAF configuration
+- Include step-by-step mitigation procedures
+- Cover: configuring rate limiting, setting up AWS Shield protection, implementing CloudFront DDoS protection, configuring WAF rules for HTTP floods, and documenting mitigation actions
+
+Deliverables should include:
+- AWS configuration examples
+- A DDoS mitigation workflow
+- A cloud defense strategy template
+- A post-incident review template
+- Best practices for DDoS prevention
+
+Include both on-premise and cloud-based mitigation strategies.
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 5 Prompts -->
+      <section class="prompts-section">
+        <h2 class="section-title">Module 5: Malware Attack</h2>
+        
+        <div class="prompt-card">
+          <h3>5.1 Static Malware Analysis</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-5-1')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-5-1">
+Create a hands-on lab on "Static Malware Analysis" for SOC Analyst I students.
+
+The lab should:
+- Use open-source tools: strings, file, hash calculators, PE analysis tools
+- Include a safe malware sample (or synthetic sample)
+- Cover: calculating file hashes (MD5, SHA256), extracting strings, analyzing file metadata, identifying file type and architecture, and creating a static analysis report
+
+Deliverables should include:
+- A safe malware sample or synthetic sample data
+- Command-line analysis instructions
+- A static analysis checklist
+- A malware analysis report template
+- IOCs extraction template
+
+Emphasize safety and use of isolated environments.
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <h3>5.2 Memory Forensics with Volatility</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-5-2')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-5-2">
+Create a hands-on lab on "Memory Forensics Using Volatility Framework" for SOC Analyst I students.
+
+The lab should:
+- Use Volatility 3 (open-source)
+- Include a sample memory dump with malware activity
+- Cover: identifying malicious processes, analyzing network connections in memory, detecting code injection, extracting process command lines, and creating a memory forensics report
+
+Deliverables should include:
+- A sample memory dump (or instructions to create one)
+- Volatility command cheat sheet
+- A memory forensics workflow
+- A process analysis template
+- A memory forensics report template
+
+Focus on practical Volatility commands for SOC analysts.
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <h3>5.3 Reverse Engineering Basics</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-5-3')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-5-3">
+Create a hands-on lab on "Reverse Engineering Basics for Malware Analysis" for SOC Analyst I students.
+
+The lab should:
+- Use Ghidra (free, open-source) or similar tools
+- Include a simple malware sample for analysis
+- Cover: loading malware into disassembler, identifying main functions, analyzing API calls, identifying malware family characteristics, and documenting findings
+
+Deliverables should include:
+- A simple malware sample or synthetic analysis data
+- Ghidra setup and usage instructions
+- A reverse engineering workflow
+- A malware family identification guide
+- A reverse engineering report template
+
+Keep it beginner-friendly with focus on SOC analyst use cases.
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 6 Prompts -->
+      <section class="prompts-section">
+        <h2 class="section-title">Module 6: Detection Engineering</h2>
+        
+        <div class="prompt-card">
+          <h3>6.1 Suricata Rule Creation</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-6-1')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-6-1">
+Create a hands-on lab on "Creating Suricata IDS/IPS Rules" for SOC Analyst I students.
+
+The lab should:
+- Use Suricata (open-source)
+- Include step-by-step rule writing instructions
+- Cover: understanding Suricata rule syntax, writing rules for HTTP-based attacks, creating rules for malware detection, testing rules against sample traffic, and tuning rules to reduce false positives
+
+Deliverables should include:
+- Suricata rule syntax cheat sheet
+- Sample rules for common threats
+- A rule testing workflow
+- A rule tuning guide
+- A detection rule template
+
+Include practical examples for phishing, malware, and data exfiltration detection.
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <h3>6.2 YARA Rule Creation</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-6-2')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-6-2">
+Create a hands-on lab on "Creating YARA Rules for Malware Detection" for SOC Analyst I students.
+
+The lab should:
+- Use YARA (open-source)
+- Include sample malware characteristics for rule writing
+- Cover: understanding YARA rule syntax, writing rules with strings and regex, using hex patterns, creating rules for malware families, and testing rules against samples
+
+Deliverables should include:
+- YARA rule syntax cheat sheet
+- Sample YARA rules
+- A rule writing workflow
+- A malware signature template
+- A YARA rule testing guide
+
+Focus on practical malware detection use cases.
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <h3>6.3 Sigma Rule Creation</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-6-3')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-6-3">
+Create a hands-on lab on "Creating Sigma Rules for SIEM-Agnostic Detection" for SOC Analyst I students.
+
+The lab should:
+- Use Sigma (open-source, SIEM-agnostic)
+- Include rule writing for common attack patterns
+- Cover: understanding Sigma rule syntax, writing rules for Windows Event Logs, creating rules for Linux logs, converting Sigma to SIEM queries (Splunk, ELK), and testing rules
+
+Deliverables should include:
+- Sigma rule syntax cheat sheet
+- Sample Sigma rules for common attacks
+- A SIEM conversion guide
+- A detection rule template
+- A rule testing workflow
+
+Include examples for unauthorized access, privilege escalation, and data exfiltration detection.
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 7 Prompts -->
+      <section class="prompts-section">
+        <h2 class="section-title">Module 7: Live Attack & Defense</h2>
+        
+        <div class="prompt-card">
+          <h3>7.1 Multi-Stage Attack Simulation</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-7-1')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-7-1">
+Create a comprehensive capstone lab on "Multi-Stage Attack Simulation and Response" for SOC Analyst I students.
+
+The lab should:
+- Simulate a complete attack chain: phishing → initial access → privilege escalation → lateral movement → data exfiltration
+- Include logs, PCAPs, and artifacts from each stage
+- Cover: detecting each stage of the attack, creating an incident timeline, implementing containment measures, documenting eradication steps, and writing a complete incident report
+
+Deliverables should include:
+- Multi-stage attack scenario with all artifacts
+- A detection workflow for each stage
+- An incident response playbook
+- A complete incident report template
+- Lessons learned documentation template
+
+This should be a comprehensive capstone that ties together all previous modules.
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <h3>7.2 Detect and Defend Challenge</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-7-2')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-7-2">
+Create a hands-on challenge lab on "Detect and Defend: Real-Time Incident Response" for SOC Analyst I students.
+
+The lab should:
+- Present a time-pressured scenario with multiple alerts
+- Include logs, alerts, and network data requiring triage
+- Cover: prioritizing incidents by severity, triaging multiple alerts simultaneously, making containment decisions under pressure, coordinating response actions, and creating an executive summary
+
+Deliverables should include:
+- A scenario with multiple concurrent incidents
+- A triage prioritization framework
+- A decision-making workflow
+- An executive summary template
+- A post-incident review template
+
+Focus on real-world SOC analyst decision-making under pressure.
+          </div>
+        </div>
+      </section>
+
+      <!-- Module 8 Prompts -->
+      <section class="prompts-section">
+        <h2 class="section-title">Module 8: Interview Prep</h2>
+        
+        <div class="prompt-card">
+          <h3>8.1 Technical Interview Simulation</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-8-1')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-8-1">
+Create a hands-on lab on "Technical Interview Simulation for SOC Analyst Roles" for SOC Analyst I students.
+
+The lab should:
+- Include common SOC analyst interview questions
+- Provide sample scenarios for whiteboard analysis
+- Cover: answering technical questions about incident response, explaining analysis methodologies, demonstrating tool knowledge, handling scenario-based questions, and practicing communication skills
+
+Deliverables should include:
+- A question bank with model answers
+- Whiteboard scenario exercises
+- A communication framework
+- A technical interview prep checklist
+- A self-assessment rubric
+
+Focus on both technical knowledge and communication skills.
+          </div>
+        </div>
+
+        <div class="prompt-card">
+          <h3>8.2 Behavioral Interview Prep</h3>
+          <button class="copy-btn" onclick="copyPrompt('prompt-8-2')">Copy Prompt</button>
+          <div class="prompt-content" id="prompt-8-2">
+Create a hands-on lab on "Behavioral Interview Preparation for SOC Analyst Roles" for SOC Analyst I students.
+
+The lab should:
+- Include STAR method framework
+- Provide common behavioral questions for SOC roles
+- Cover: structuring answers using STAR method, preparing stories from lab experiences, demonstrating teamwork and problem-solving, handling stress-related questions, and practicing delivery
+
+Deliverables should include:
+- A STAR method guide
+- Common behavioral questions with frameworks
+- A story bank template
+- A practice interview checklist
+- A self-reflection worksheet
+
+Help students translate their lab experiences into compelling interview stories.
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 SOC Analyst I — From Cradle to Grave. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function copyPrompt(id) {
+      const promptContent = document.getElementById(id);
+      const text = promptContent.textContent.trim();
+      
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied!';
+        btn.style.background = 'var(--accent)';
+        
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy:', err);
+        alert('Failed to copy. Please select and copy manually.');
+      });
+    }
+  </script>
+</body>
+</html>
+

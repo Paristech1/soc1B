@@ -1,0 +1,118 @@
+# Fix QA Critical and Medium Priority Bugs
+
+## Issues to Fix
+
+### Critical Bug #1: Lab Tutorial URL Parameter Mismatch
+
+**Problem:** lab-tutorial.html shows hardcoded "Lab 1.1" content even when URL parameter is `?lab=1.2`. The page doesn't dynamically load content based on the lab parameter.
+
+**Solution:**
+
+1. Update `lab-tutorial.html` to dynamically load lab content based on URL parameter
+2. Use existing `lab-data.js` to populate lab metadata (title, objective, duration, difficulty)
+3. Update JavaScript in `lab-tutorial.html` to:
+
+   - Read URL parameter on page load
+   - Update tutorial header (module number, lab number, title, subtitle)
+   - Update progress tracking to use lab-specific localStorage keys
+   - Update "Next Steps" section dynamically
+
+4. For now, keep the detailed tutorial content for Lab 1.1, but make the header/metadata dynamic
+5. Add fallback to Lab 1.1 if no parameter or invalid parameter
+
+**Files to modify:**
+
+- `website/lab-tutorial.html` - Add dynamic content loading script
+- `website/lab-data.js` - Ensure all lab data is present (currently has 1.1, 1.2, 1.3)
+
+### Medium Priority Issue #1: Theme Persistence Not Working Between Pages
+
+**Problem:** Theme preference saved in localStorage but not applied before page renders, causing flash and inconsistent theme across pages.
+
+**Solution:**
+
+1. Add inline script in `<head>` of all HTML pages to load theme BEFORE page renders
+2. This prevents flash of wrong theme
+3. Keep existing app.js theme toggle functionality
+4. Apply to all 9 pages: index.html, modules.html, lab.html, lab-tutorial.html, dashboard.html, portfolio.html, resources.html, prompts.html, notebook.html
+
+**Implementation:**
+
+- Add `<script>` tag in `<head>` section (before closing `</head>`) on all pages
+- Script should read localStorage and apply theme class to `<html>` or `<body>` tag immediately
+- This runs synchronously before page paint
+
+**Files to modify:**
+
+- All 9 HTML files in `website/` directory
+
+## Implementation Details
+
+### 1. Lab Tutorial Dynamic Loading
+
+In `lab-tutorial.html`, add script after line 9 (after app.js script tag):
+
+```javascript
+<script>
+  // Load theme immediately (before page render)
+  (function() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.classList.add(savedTheme);
+    document.body.classList.add(savedTheme);
+  })();
+</script>
+```
+
+Then update the inline script at bottom of lab-tutorial.html (around line 580) to:
+
+- Read URL parameter
+- Load lab data from lab-data.js
+- Update DOM elements: `.tutorial-number`, `h1`, `.tutorial-subtitle`, `.tutorial-stats`
+- Update localStorage keys to use lab ID (e.g., 'lab-1.2-progress' instead of 'lab-1.1-progress')
+- Update "Next Steps" section to show correct next lab
+
+### 2. Theme Persistence Fix
+
+Add this script to `<head>` section of ALL HTML pages (before `</head>` tag):
+
+```html
+<script>
+  // Load saved theme immediately to prevent flash
+  (function() {
+    try {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.classList.add(savedTheme);
+      if (document.body) {
+        document.body.classList.add(savedTheme);
+      } else {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add(savedTheme);
+        });
+      }
+    } catch(e) {
+      // Fallback to dark if localStorage fails
+      document.documentElement.classList.add('dark');
+    }
+  })();
+</script>
+```
+
+Also update `app.js` to ensure it doesn't override the theme if already set.
+
+## Testing Checklist
+
+After fixes:
+
+- [ ] Navigate to lab-tutorial.html?lab=1.2 - verify badge shows "Lab 1.2" and title matches
+- [ ] Navigate to lab-tutorial.html?lab=1.1 - verify shows "Lab 1.1"
+- [ ] Navigate to lab-tutorial.html (no parameter) - verify defaults to Lab 1.1
+- [ ] Toggle theme on any page, navigate to another page - verify theme persists
+- [ ] Refresh page - verify theme persists
+- [ ] Test in incognito mode - verify defaults to dark theme
+- [ ] Check browser console for JavaScript errors
+
+## Additional Notes
+
+- The detailed tutorial content (steps, explanations) for Lab 1.2 and 1.3 are not yet created - for now, only the header/metadata will be dynamic
+- Future enhancement: Create full tutorial content for all labs or implement a content loading system
+- Theme script must be in `<head>` to prevent flash of unstyled content (FOUC)

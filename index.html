@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>SOC Analyst I: From Cradle to Grave</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+  // Load saved theme immediately to prevent flash
+  (function() {
+    try {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.classList.add(savedTheme);
+      if (document.body) {
+        document.body.classList.add(savedTheme);
+      } else {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add(savedTheme);
+        });
+      }
+    } catch(e) {
+      // Fallback to dark if localStorage fails
+      document.documentElement.classList.add('dark');
+    }
+  })();
+</script>
+<script src="app.js" defer></script>
+</head>
+<body class="dark">
+  <nav class="site-nav">
+    <div class="logo">SOC Analyst I</div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="modules.html">Modules</a></li>
+      <li><a href="lab.html">Labs</a></li>
+      <li><a href="dashboard.html">Progress</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="prompts.html">Prompts</a></li>
+      <li><a href="notebook.html">Notebook</a></li>
+      <li>
+        <button class="theme-toggle" aria-label="Toggle theme">🌓</button>
+      </li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">SOC Analyst I: From Cradle to Grave</h1>
+      <p class="hero-subtitle">Practical Incident Response, Detection Engineering, and Career Readiness</p>
+      <p class="hero-description">Transform into a job-ready Security Operations Center (SOC) Analyst I with hands-on labs, real-world scenarios, and portfolio-building projects.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">8</span>
+          <span class="stat-label">Modules</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">20+</span>
+          <span class="stat-label">Labs</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">16</span>
+          <span class="stat-label">Portfolio Projects</span>
+        </div>
+      </div>
+      <a href="modules.html" class="btn-primary btn-large">Start your journey</a>
+    </div>
+  </header>
+
+  <section class="modules-preview">
+    <div class="container">
+      <h2 class="section-title">Course Modules</h2>
+      <p class="section-subtitle">Master real-world SOC operations through hands-on incident response</p>
+      <div class="modules-grid">
+        <div class="module-card in-progress" data-module="1" data-status="in-progress">
+          <span class="module-icon">📧</span>
+          <span class="module-number">Module 1</span>
+          <h3 class="module-title">Phishing Attack</h3>
+          <p class="module-description">Email header analysis, OSINT enrichment, PCAP analysis, and incident ticketing.</p>
+          <div class="module-meta">
+            <span class="module-duration">⏱️ 3 hours</span>
+            <span class="module-labs">🔬 3 labs</span>
+          </div>
+          <div class="module-progress">
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 40%"></div>
+            </div>
+            <span class="progress-text">40% complete</span>
+          </div>
+          <span class="badge badge-in-progress">In progress</span>
+          <a href="modules.html#module-1" class="btn-secondary btn-sm">Continue</a>
+        </div>
+        <div class="module-card locked" data-module="2" data-status="locked">
+          <span class="module-icon">🔐</span>
+          <span class="module-number">Module 2</span>
+          <h3 class="module-title">Unauthorized Access</h3>
+          <p class="module-description">IAM abuse, privilege escalation, host log analysis, and cloud IAM investigation.</p>
+          <div class="module-meta">
+            <span class="module-duration">⏱️ 3 hours</span>
+            <span class="module-labs">🔬 3 labs</span>
+          </div>
+          <span class="badge badge-locked">Locked</span>
+        </div>
+        <div class="module-card locked" data-module="3" data-status="locked">
+          <span class="module-icon">📤</span>
+          <span class="module-number">Module 3</span>
+          <h3 class="module-title">Data Exfiltration</h3>
+          <p class="module-description">Data loss patterns, file transfer analysis, cloud forensics, and Linux disk forensics.</p>
+          <div class="module-meta">
+            <span class="module-duration">⏱️ 3 hours</span>
+            <span class="module-labs">🔬 3 labs</span>
+          </div>
+          <span class="badge badge-locked">Locked</span>
+        </div>
+        <div class="module-card locked" data-module="4" data-status="locked">
+          <span class="module-icon">⚡</span>
+          <span class="module-number">Module 4</span>
+          <h3 class="module-title">DDoS Attack</h3>
+          <p class="module-description">DDoS detection, botnet analysis, mitigation strategies, and cloud defenses.</p>
+          <div class="module-meta">
+            <span class="module-duration">⏱️ 2 hours</span>
+            <span class="module-labs">🔬 2 labs</span>
+          </div>
+          <span class="badge badge-locked">Locked</span>
+        </div>
+        <div class="module-card locked" data-module="5" data-status="locked">
+          <span class="module-icon">🦠</span>
+          <span class="module-number">Module 5</span>
+          <h3 class="module-title">Malware Attack</h3>
+          <p class="module-description">Static/dynamic analysis, memory forensics, reverse engineering, and malware triage.</p>
+          <div class="module-meta">
+            <span class="module-duration">⏱️ 4 hours</span>
+            <span class="module-labs">🔬 3 labs</span>
+          </div>
+          <span class="badge badge-locked">Locked</span>
+        </div>
+        <div class="module-card locked" data-module="6" data-status="locked">
+          <span class="module-icon">🛡️</span>
+          <span class="module-number">Module 6</span>
+          <h3 class="module-title">Detection Engineering</h3>
+          <p class="module-description">Suricata rules, YARA rules, Sigma rules, and SIEM integration.</p>
+          <div class="module-meta">
+            <span class="module-duration">⏱️ 3 hours</span>
+            <span class="module-labs">🔬 3 labs</span>
+          </div>
+          <span class="badge badge-locked">Locked</span>
+        </div>
+        <div class="module-card locked" data-module="7" data-status="locked">
+          <span class="module-icon">🎯</span>
+          <span class="module-number">Module 7</span>
+          <h3 class="module-title">Live Attack & Defense</h3>
+          <p class="module-description">Multi-stage attack simulation, containment, eradication, and incident reporting.</p>
+          <div class="module-meta">
+            <span class="module-duration">⏱️ 4.5 hours</span>
+            <span class="module-labs">🔬 2 capstone labs</span>
+          </div>
+          <span class="badge badge-locked">Locked</span>
+        </div>
+        <div class="module-card locked" data-module="8" data-status="locked">
+          <span class="module-icon">💼</span>
+          <span class="module-number">Module 8</span>
+          <h3 class="module-title">Interview Prep</h3>
+          <p class="module-description">Technical mock interviews, behavioral prep, resume optimization, and career roadmap.</p>
+          <div class="module-meta">
+            <span class="module-duration">⏱️ 3 hours</span>
+            <span class="module-labs">🔬 2 labs</span>
+          </div>
+          <span class="badge badge-locked">Locked</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="learning-path">
+    <div class="container">
+      <h2 class="section-title">Your Learning Path</h2>
+      <div class="timeline">
+        <div class="timeline-item completed">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <h4>Foundation</h4>
+            <p>Phishing & Unauthorized Access</p>
+          </div>
+        </div>
+        <div class="timeline-item active">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <h4>Intermediate</h4>
+            <p>Data Loss & DDoS Defense</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <h4>Advanced</h4>
+            <p>Malware Analysis & Detection Engineering</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <h4>Capstone</h4>
+            <p>Live Attack Defense & Interview Prep</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">What You'll Learn</h2>
+      <p class="section-subtitle">Comprehensive SOC training with real-world applications</p>
+      <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">🎓</span>
+        <h4>8 Comprehensive Modules</h4>
+        <p>From phishing to interview prep, covering all essential SOC Tier 1 skills.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🧪</span>
+        <h4>20+ Hands-On Labs</h4>
+        <p>Real-world scenarios with step-by-step instructions and synthetic data.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📁</span>
+        <h4>8+ Portfolio Projects</h4>
+        <p>LinkedIn-ready projects to showcase your skills to employers.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📋</span>
+        <h4>5 Professional Templates</h4>
+        <p>NIST 800-61 aligned templates for incident reports and documentation.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🗓️</span>
+        <h4>90-Day Study Plan</h4>
+        <p>Optimized schedule for working professionals with 10-hour shifts.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🚀</span>
+        <h4>Career Roadmap</h4>
+        <p>6-month progression plan from Tier 1 to Tier 2 to Specialist roles.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 SOC Analyst I — From Cradle to Grave. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+

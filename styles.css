@@ -2214,3 +2214,313 @@ details summary {
 
 .hidden { display: none; }
 .visible { display: block; }
+
+/* ============================================
+   TUTORIAL PAGE SPECIFIC STYLES
+   ============================================ */
+
+/* General Tutorial Layout */
+.tutorial-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.tutorial-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tutorial-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.tutorial-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Step-by-Step Tutorial */
+.tutorial-steps {
+  margin-top: 3rem;
+}
+
+.tutorial-step {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid transparent;
+  transition: background 0.2s;
+}
+
+.tutorial-step.expanded .step-header {
+  border-bottom-color: var(--border);
+  background: var(--bg-card);
+}
+
+.step-header:hover {
+  background: var(--bg-card);
+}
+
+.step-number {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-right: 1rem;
+  text-transform: uppercase;
+}
+
+.step-header h3 {
+  flex-grow: 1;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.step-toggle {
+  background: var(--primary);
+  color: var(--text-on-primary);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--button-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.step-toggle:hover {
+  background: var(--primary-hover);
+}
+
+.step-content {
+  padding: 1.5rem;
+  display: none; /* Hidden by default */
+}
+
+.tutorial-step.expanded .step-content {
+  display: block; /* Shown when expanded */
+}
+
+.step-explanation {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed var(--border);
+}
+
+.step-action {
+  background: var(--bg-card);
+  padding: 1rem;
+  border-radius: var(--button-radius);
+}
+
+/* Knowledge Check Quiz Styles */
+.knowledge-check-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: var(--bg-surface);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+}
+
+.kq-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--button-radius);
+  transition: all 0.3s;
+}
+
+.kq-options label {
+  display: block;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 4px;
+}
+
+.kq-options label:hover {
+  background: var(--bg-elevated);
+}
+
+/* Quiz Feedback */
+.kq-item.correct {
+  border-left: 5px solid var(--success);
+  background: rgba(16, 185, 129, 0.1); /* Light green background */
+}
+
+.kq-item.incorrect {
+  border-left: 5px solid var(--danger);
+  background: rgba(239, 68, 68, 0.1); /* Light red background */
+}
+
+.kq-options label.correct-answer {
+  background: var(--success);
+  color: var(--text-on-primary);
+  padding: 0.5rem;
+  font-weight: 600;
+}
+
+.kq-options label.incorrect-answer {
+  background: var(--danger);
+  color: var(--text-on-primary);
+  padding: 0.5rem;
+  font-weight: 600;
+}
+
+.kq-options label.correct-answer input,
+.kq-options label.incorrect-answer input {
+  filter: brightness(1.5); /* Make radio button visible on colored background */
+}
+
+/* Other tutorial elements */
+.instruction-box, .tip-box {
+  padding: 1rem;
+  border-radius: var(--button-radius);
+  margin: 1rem 0;
+}
+
+.instruction-box {
+  background: var(--bg-card);
+  border-left: 4px solid var(--primary);
+}
+
+.tip-box {
+  background: var(--bg-card);
+  border-left: 4px solid var(--warning);
+}
+
+.code-block {
+  background: #000;
+  color: #fff;
+  padding: 1rem;
+  border-radius: var(--button-radius);
+  overflow-x: auto;
+}
+
+.header-fields-table {
+  margin: 1rem 0;
+}
+
+.header-fields-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.header-fields-table th, .header-fields-table td {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.header-fields-table th {
+  background: var(--bg-elevated);
+  font-weight: 600;
+}
+
+.header-fields-table tr:nth-child(even) {
+  background: var(--bg-card);
+}
+
+.header-fields-table tr:hover {
+  background: var(--bg-elevated);
+}
+
+.knowledge-check h4 {
+  margin-top: 0;
+}
+
+.knowledge-check details {
+  background: var(--bg-card);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  margin-top: 0.5rem;
+}
+
+.knowledge-check summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.knowledge-check details p {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.lab-completion {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: var(--bg-surface);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+}
+
+.completion-checklist {
+  margin-top: 1rem;
+}
+
+.completion-checklist .checkbox-label {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+
+.completion-checklist .checkbox-label input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+}
+
+.completion-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.next-steps {
+  margin-top: 3rem;
+}
+
+.next-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.next-step-card {
+  background: var(--bg-surface);
+  padding: 1.5rem;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+}
+
+.next-step-card h4 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+.next-step-card p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}

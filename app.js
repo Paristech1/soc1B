@@ -116,16 +116,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 100);
   });
 
-  // Lab tutorial page - load specific lab based on URL parameter
-  if (window.location.pathname.includes('lab-tutorial.html')) {
-    const urlParams = new URLSearchParams(window.location.search);
-    const labId = urlParams.get('lab');
-    
-    if (labId) {
-      // Load lab-specific content
-      // This would typically fetch from a data file or API
-      console.log('Loading lab:', labId);
-    }
-  }
+
 });
 
