@@ -498,330 +498,133 @@ ul { list-style: none; }
   padding: 1.5rem 2rem;
   background: rgba(0, 0, 0, 0.2);
   border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- Notebook & Prompts Specifics --- */
+.prompt-card {
+  background: #0d0d11;
+}
+
+.btn-copy {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'JetBrains Mono';
+  font-size: 0.8rem;
+  transition: var(--transition);
+}
+
+.btn-copy:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 /* --- Lab Tutorial Specifics --- */
-.tutorial-page {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
 .tutorial-header {
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
+  background: var(--bg-panel);
+  padding: 3rem 2rem;
   border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2rem;
 }
 
-.tutorial-meta {
-  display: flex;
-  gap: 1rem;
+.breadcrumb a {
+  color: var(--text-muted);
   font-size: 0.9rem;
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
 }
 
-.tutorial-subtitle {
-  font-size: 1.1rem;
-  color: var(--text-muted);
-  margin-top: 0.5rem;
-}
-
-/* Step-by-Step Tutorial */
-.tutorial-steps {
-  margin-top: 3rem;
-}
+.breadcrumb a:hover { color: var(--primary); }
 
 .tutorial-step {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   overflow: hidden;
-  transition: var(--transition);
 }
 
 .step-header {
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.02);
   display: flex;
   align-items: center;
-  padding: 1rem 1.5rem;
+  gap: 1rem;
   cursor: pointer;
-  background: var(--bg-panel);
-  border-bottom: 1px solid transparent;
-  transition: background 0.2s;
-}
-
-.tutorial-step.expanded .step-header {
-  border-bottom-color: var(--border-color);
-  background: var(--bg-card);
-}
-
-.step-header:hover {
-  background: var(--bg-panel);
 }
 
 .step-number {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-right: 1rem;
-  text-transform: uppercase;
-}
-
-.step-header h3 {
-  flex-grow: 1;
-  margin: 0;
-  font-size: 1.1rem;
-}
-
-.step-toggle {
   background: var(--primary);
-  color: var(--text-main);
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.step-toggle:hover {
-  background: var(--secondary);
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
 }
 
 .step-content {
-  padding: 1.5rem;
-  display: none; /* Hidden by default */
-}
-
-.tutorial-step.expanded .step-content {
-  display: block; /* Shown when expanded */
-}
-
-.step-explanation {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px dashed var(--border-color);
-}
-
-.step-action {
-  background: var(--bg-panel);
-  padding: 1rem;
-  border-radius: var(--radius);
-}
-
-/* Knowledge Check Quiz Styles */
-.knowledge-check-section {
-  margin-top: 3rem;
   padding: 2rem;
-  background: var(--bg-panel);
-  border-radius: var(--radius);
-  border: 1px solid var(--border-color);
-}
-
-.kq-item {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  transition: var(--transition);
-}
-
-.kq-options label {
-  display: block;
-  padding: 0.5rem 0;
-  cursor: pointer;
-  transition: background 0.2s;
-  border-radius: 4px;
-}
-
-.kq-options label:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/* Quiz Feedback */
-.kq-item.correct {
-  border-left: 5px solid var(--success);
-  background: rgba(16, 185, 129, 0.1); /* Light green background */
-}
-
-.kq-item.incorrect {
-  border-left: 5px solid var(--danger);
-  background: rgba(239, 68, 68, 0.1); /* Light red background */
-}
-
-.kq-options label.correct-answer {
-  background: var(--success);
-  color: var(--text-main);
-  padding: 0.5rem;
-  font-weight: 600;
-}
-
-.kq-options label.incorrect-answer {
-  background: var(--danger);
-  color: var(--text-main);
-  padding: 0.5rem;
-  font-weight: 600;
-}
-
-.kq-options label.correct-answer input,
-.kq-options label.incorrect-answer input {
-  filter: brightness(1.5); /* Make radio button visible on colored background */
-}
-
-/* Other tutorial elements */
-.instruction-box, .tip-box {
-  padding: 1rem;
-  border-radius: var(--radius);
-  margin: 1rem 0;
-}
-
-.instruction-box {
-  background: var(--bg-card);
-  border-left: 4px solid var(--primary);
-}
-
-.tip-box {
-  background: var(--bg-card);
-  border-left: 4px solid var(--warning);
+  border-top: 1px solid var(--border-color);
 }
 
 .code-block {
   background: #000;
-  color: #fff;
-  padding: 1rem;
-  border-radius: var(--radius);
+  padding: 1.5rem;
+  border-radius: 6px;
   overflow-x: auto;
-}
-
-.header-fields-table {
+  border: 1px solid #333;
+  color: #a5b3ce;
   margin: 1rem 0;
 }
 
-.header-fields-table table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.header-fields-table th, .header-fields-table td {
-  padding: 0.75rem;
-  border: 1px solid var(--border-color);
-  text-align: left;
-}
-
-.header-fields-table th {
-  background: var(--bg-panel);
-  font-weight: 600;
-}
-
-.header-fields-table tr:nth-child(even) {
-  background: var(--bg-card);
-}
-
-.header-fields-table tr:hover {
-  background: var(--bg-panel);
-}
-
-.knowledge-check h4 {
-  margin-top: 0;
-}
-
-.knowledge-check details {
-  background: var(--bg-card);
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  border: 1px solid var(--border-color);
-  margin-top: 0.5rem;
-}
-
-.knowledge-check summary {
-  cursor: pointer;
-  font-weight: 500;
-  color: var(--primary);
-}
-
-.knowledge-check details p {
-  margin-top: 0.5rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid var(--border-color);
-}
-
-.lab-completion {
-  margin-top: 3rem;
-  padding: 2rem;
-  background: var(--bg-panel);
-  border-radius: var(--radius);
-  border: 1px solid var(--border-color);
-}
-
-.completion-checklist {
-  margin-top: 1rem;
-}
-
-.completion-checklist .checkbox-label {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 0;
-  cursor: pointer;
-}
-
-.completion-checklist .checkbox-label input[type="checkbox"] {
-  margin-right: 10px;
-  width: 18px;
-  height: 18px;
-  accent-color: var(--primary);
-}
-
-.completion-actions {
-  margin-top: 1.5rem;
+/* --- Filters --- */
+.lab-filters {
   display: flex;
   gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.next-steps {
-  margin-top: 3rem;
-}
-
-.next-steps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.next-step-card {
-  background: var(--bg-card);
-  padding: 1.5rem;
-  border-radius: var(--radius);
+.filter-btn {
+  background: transparent;
   border: 1px solid var(--border-color);
-}
-
-.next-step-card h4 {
-  margin-top: 0;
-  color: var(--primary);
-}
-
-.next-step-card p {
   color: var(--text-muted);
-  margin-bottom: 1rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: var(--transition);
 }
 
-/* --- Footer --- */
+.filter-btn:hover, .filter-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+/* Footer */
 .site-footer {
   text-align: center;
-  padding: 2rem;
-  margin-top: 4rem;
-  border-top: 1px solid var(--border-color);
+  padding: 4rem 0;
   color: var(--text-muted);
   font-size: 0.9rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: 4rem;
 }
 
-
-/* QA Fixes - Contrast Improvements */
-.resources-page .resource-card p {
-  color: var(--text-main);
-}
-
-.code-block pre {
-  color: var(--text-main);
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.5rem; }
+  .nav-links { display: none; } /* Simple hide for now, would need JS for hamburger */
+  .hero-stats { flex-direction: column; gap: 1.5rem; }
+  .modules-grid { grid-template-columns: 1fr; }
 }
