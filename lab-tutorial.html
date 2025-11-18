@@ -5,26 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Lab Tutorial - SOC Analyst I</title>
   <link rel="stylesheet" href="styles.css">
-  <script>
-  // Load saved theme immediately to prevent flash
-  (function() {
-    try {
-      const savedTheme = localStorage.getItem('theme') || 'dark';
-      document.documentElement.classList.add(savedTheme);
-      if (document.body) {
-        document.body.classList.add(savedTheme);
-      } else {
-        document.addEventListener('DOMContentLoaded', function() {
-          document.body.classList.add(savedTheme);
-        });
-      }
-    } catch(e) {
-      // Fallback to dark if localStorage fails
-      document.documentElement.classList.add('dark');
-    }
-  })();
-</script>
-<script src="app.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="lab-data.js" defer></script>
+  <script src="lab-tutorial.js" defer></script>
 </head>
 <body class="dark">
   <nav class="site-nav">
