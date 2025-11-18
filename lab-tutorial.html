@@ -657,16 +657,18 @@ X-Originating-IP: [198.51.100.50]</code></pre>
         }
       });
 
-      // Step toggle functionality (Fix for persistent issue)
-      document.querySelectorAll('.step-toggle').forEach(btn => {
-        btn.addEventListener('click', function() {
-          const step = this.closest('.tutorial-step');
-          // Toggle the 'expanded' class on the parent element
-          const isExpanded = step.classList.toggle('expanded');
-          
-          // Update the button text
-          this.textContent = isExpanded ? 'Collapse' : 'Expand';
-        });
+      // Step toggle functionality (Final, robust fix)
+      // Attach listener to the parent container and use event delegation
+      document.querySelector('.tutorial-steps').addEventListener('click', function(event) {
+        const btn = event.target.closest('.step-toggle');
+        if (!btn) return; // Not a toggle button
+        
+        const step = btn.closest('.tutorial-step');
+        // Toggle the 'expanded' class on the parent element
+        const isExpanded = step.classList.toggle('expanded');
+        
+        // Update the button text
+        btn.textContent = isExpanded ? 'Collapse' : 'Expand';
       });
 
       // Knowledge check (Keep existing)
