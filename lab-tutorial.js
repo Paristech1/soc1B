@@ -23,7 +23,32 @@ if (labId) {
     }
   });
 
-  // Save state on change
+  // Function to update progress bar
+  const updateProgress = () => {
+    const totalCheckboxes = checkboxes.length;
+    const checkedCheckboxes = Array.from(checkboxes).filter(cb => cb.checked).length;
+    const percent = totalCheckboxes > 0 ? Math.round((checkedCheckboxes / totalCheckboxes) * 100) : 0;
+    
+    const progressElement = document.getElementById('progress-percent');
+    if (progressElement) {
+      progressElement.textContent = `${percent}%`;
+    }
+    const progressFill = document.querySelector('.progress-fill');
+    if (progressFill) {
+      progressFill.style.width = `${percent}%`;
+    }
+  };
+
+  // Load state and initial progress update
+  checkboxes.forEach(cb => {
+    const state = localStorage.getItem(cb.id);
+    if (state === 'checked') {
+      cb.checked = true;
+    }
+  });
+  updateProgress(); // Initial call
+
+  // Save state and update progress on change
   checkboxes.forEach(cb => {
     cb.addEventListener('change', function() {
       if (this.checked) {
@@ -31,21 +56,27 @@ if (labId) {
       } else {
         localStorage.removeItem(this.id);
       }
+      updateProgress();
     });
   });
 
   // Step toggle functionality (Final, robust fix)
   // Attach listener to the parent container and use event delegation
   document.querySelector('.tutorial-steps').addEventListener('click', function(event) {
-    const btn = event.target.closest('.step-toggle');
-    if (!btn) return; // Not a toggle button
+    // Target can be the button or the header
+    const target = event.target.closest('.step-toggle') || event.target.closest('.step-header');
+    if (!target) return; // Not a toggle button or header
     
-    const step = btn.closest('.tutorial-step');
+    const step = target.closest('.tutorial-step');
+    const toggleButton = step.querySelector('.step-toggle');
+
     // Toggle the 'expanded' class on the parent element
     const isExpanded = step.classList.toggle('expanded');
     
     // Update the button text
-    btn.textContent = isExpanded ? 'Collapse' : 'Expand';
+    if (toggleButton) {
+      toggleButton.textContent = isExpanded ? 'Collapse' : 'Expand';
+    }
   });
 
   // Knowledge check (Keep existing)

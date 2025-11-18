@@ -815,3 +815,13 @@ ul { list-style: none; }
   color: var(--text-muted);
   font-size: 0.9rem;
 }
+
+
+/* QA Fixes - Contrast Improvements */
+.resources-page .resource-card p {
+  color: var(--text-main);
+}
+
+.code-block pre {
+  color: var(--text-main);
+}
